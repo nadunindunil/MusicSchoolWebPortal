@@ -109,7 +109,7 @@ angular
     })
       .state('dashboard.students',{
         templateUrl:'views/students.html',
-        url:'/chart',
+        url:'/students',
         controller:'ChartCtrl',
         resolve: {
           loadMyFile:function($ocLazyLoad) {
@@ -127,9 +127,9 @@ angular
           }
         }
     })
-      .state('dashboard.table',{
-        templateUrl:'views/table.html',
-        url:'/table'
+      .state('dashboard.teachers',{
+        templateUrl:'views/teachers.html',
+        url:'/teachers'
     })
       .state('dashboard.panels-wells',{
           templateUrl:'views/ui-elements/panels-wells.html',

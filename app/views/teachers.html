@@ -1,48 +1,57 @@
 <div class="row">
     <ol class="breadcrumb" style="background-color: transparent">
         <li><a href="#/home"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active"> Students</li>
+        <li class="active"> Teachers</li>
     </ol>
 
 </div>
 <div class="row ">
     <div class="col-lg-12">
-        <h4> Students Management</h4>
+        <h4> Teachers Management</h4>
         <div class="under">
 
             <!-- Button trigger modal -->
             <button class="btn btn-success btn-xs" data-toggle="modal" data-target="#myModal"><i class="fa fa-plus"></i>
-                New Student
+                New Teacher
             </button>
 
             <!-- Modal -->
-            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
+            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
                             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                            <h4 class="modal-title" id="myModalLabel"> Add new Student</h4>
+                            <h4 class="modal-title" id="myModalLabel"> Add new Teacher</h4>
                         </div>
-                        <div class="modal-body" >
+                        <div class="modal-body">
                             <form data-toggle="validator" role="form">
                                 <div class="row" style="padding-left: 15px;">
                                     <div class="col-lg-9 col-lg-offset-1 form">
                                         <div class="row from-group" style="padding-bottom: 5px">
-                                            <label class="pull-left" style="padding-left: 1cm">ID :</label>
+                                            <label class="pull-left" style="padding-left: 1cm">ID:</label>
 
-                                            <input class="form-control pull-right" minlength="7" data-minlength="7" maxlength="7"
-                                                   style="width: 300px; height: 35px" data-ng-model="sID" type="text" placeholder="ID">
+                                            <input class="form-control pull-right" minlength="7" data-minlength="6" maxlength="7"
+                                                   style="width: 300px; height: 35px" data-ng-model="tID" type="text" placeholder="ID">
                                         </div>
                                         <div class="row from-group" style="padding-bottom: 5px">
-                                            <label class="pull-left" style="padding-left: 1cm">Name :</label>
+                                            <label class="pull-left" style="padding-left: 1cm">Name:</label>
 
                                             <input class="form-control pull-right"
-                                                   style="width: 300px; height: 35px" data-ng-model="fullname" type="text" placeholder="Name">
+                                                   style="width: 300px; height: 35px" data-ng-model="name" type="text" placeholder="Full Name">
                                         </div>
+
+                                        <div class="row from-group" style="padding-bottom: 5px">
+                                            <label class="pull-left" style="padding-left: 1cm">NIC :</label>
+
+                                            <input class="form-control pull-right" minlength="10" data-minlength="6" maxlength="10"
+                                                   style="width: 300px; height: 35px" data-ng-model="nic" type="text" placeholder="NIC">
+                                        </div>
+
+
                                         <div class="row from-group" style="padding-bottom: 5px">
                                             <label class="pull-left" style="padding-left: 1cm;">gender :</label>
 
-                                            <select class="form-control pull-right" data-ng-model="sgender" style="width: 300px; height: 35px">
+                                            <select class="form-control pull-right" data-ng-model="tgender" style="width: 300px; height: 35px">
                                                 <option>MALE</option>
                                                 <option>FEMALE</option>
 
@@ -65,49 +74,30 @@
 
 
                                         <div class="row from-group" style="padding-bottom: 5px">
-                                            <label class="pull-left" style="padding-left: 1cm">Date of Birth :</label>
+                                            <label class="pull-left" style="padding-left: 1cm">DOB:</label>
 
 
                                             <input class="form-control pull-right"
                                                    style="width: 300px; height: 35px" data-ng-model="dob" type="date">
 
                                         </div>
-
-                                        <div class="row from-group" style="padding-bottom: 5px">
-                                            <label class="pull-left" style="padding-left: 1cm">Course ID:</label>
-
-                                            <select  class="form-control pull-right" data-ng-model="course" style="width: 300px; height: 35px">
-                                                <option data-ng-repeat="crs in Courses" value="{{crs.course_ID}}"> {{crs.title}}</option>
-                                                <!--<option> dummycourse2</option>-->
-
-                                            </select>
-
-
-                                        </div>
-                                        <div class="row from-group" style="padding-bottom: 5px">
-                                            <label class="pull-left" style="padding-left: 1cm">Per.Group ID:</label>
-
-                                            <select class="form-control pull-right" data-ng-model="perGroup" style="width: 300px; height: 35px">
-                                                <option data-ng-repeat="grp in Groups" value="{{grp.group_ID}}"> {{grp.group_ID}}</option>
-
-                                            </select>
-                                        </div>
-
-                                        <div class="row from-group" style="padding-bottom: 5px" >
-                                            <label class="pull-left" style="padding-left: 1cm">Telephone:</label>
-
-                                            <input class="form-control pull-right"
-                                                   style="width: 300px; height: 35px" data-ng-model="telePhone" type="text"
-                                                   placeholder="Telephone" minlength="10" data-minlength="10" maxlength="10">
-
-                                        </div>
-
                                         <div class="row from-group" style="padding-bottom: 5px">
                                             <label class="pull-left" style="padding-left: 1cm">Address:</label>
 
                                             <input class="form-control pull-right"
                                                    style="width: 300px; height: 35px" data-ng-model="address" type="text" placeholder="Address">
                                         </div>
+
+                                        <div class="row from-group" style="padding-bottom: 5px" >
+                                            <label class="pull-left" style="padding-left: 1cm">Telephone:</label>
+
+                                            <input class="form-control pull-right"
+                                                   style="width: 300px; height: 35px" data-ng-model="telephone" type="text"
+                                                   placeholder="Telephone" minlength="10" data-minlength="6" maxlength="10">
+
+                                        </div>
+
+
 
 
 
@@ -122,8 +112,8 @@
 
                                 <button type="button reset" class="btn btn-default btn-sm" data-dismiss="modal">Close</button>
                                 <button class="btn btn-success btn-sm" type="button"
-                                        data-ng-disabled="!sID || !fullname || !sgender"
-                                        data-ng-click=" addStudent();" data-dismiss="modal"> Add Student</button>
+                                        data-ng-disabled="!tID || !name || !nic "
+                                        data-ng-click=" addTeacher();" data-dismiss="modal"> Add Teacher</button>
                             </div>
                         </div>
                     </div>
@@ -133,14 +123,14 @@
             </div>
         </div>
 
-        <div class="x_panel" ng-controller="StudentsCtrl">
-            <div class="x_title clearfix">
+        <div class="panel panel-white">
+            <div class="panel-heading clearfix">
 
-                <div class="pull-left"> <h5>Registered Students ({{Students.length}})</h5> </div>
+                <div class="pull-left"> <h5>Registered Teachers ({{Teachers.length}})</h5></div>
                 <input class="form-control pull-right" data-ng-model="query" type="text" class="form-control empty" id="iconified" placeholder="&#xF002; Search.." style="width: 180px;height: 30px;font-family:Arial, FontAwesome">
 
             </div>
-            <div class="x_content">
+            <div class="panel-body">
                 <div class="table-responsive">
                     <table class="table table-hover">
                         <thead>
@@ -149,26 +139,19 @@
                             <th>Name</th>
                             <th>Gender</th>
                             <th>DOB</th>
-                            <th>course ID</th>
-                            <th>performance group ID</th>
+                            <th>NIC</th>
                             <!--<th>phone numbers</th>-->
                             <th>Action</th>
                         </tr>
                         </thead>
                         <tbody>
-                        <tr class="repeat-animation" data-ng-repeat="student in Students track by $index">
-                            <td>{{student.ID}}</td>
-                            <td>{{student.name}}</td>
-                            <td>{{student.gender}}</td>
-                            <td>{{student.DOB }}</td>
-                            <td>{{student.course_ID}}</td>
-                            <td>{{student.performance_group_ID }}</td>
-                            <!--<td>-->
-                            <!--<ul ng-init="nums = findTelNums(student.ID)">-->
-                            <!--<li>{{nums[0]}}</li>-->
-                            <!--</ul>-->
-
-                            <!--</td>-->
+                        <tr class="repeat-animation" data-ng-repeat="teacher in Teachers track by $index">
+                            <td>{{teacher.teacher_ID}}</td>
+                            <td>{{teacher.name}}</td>
+                            <td>{{teacher.gender}}</td>
+                            <td>{{teacher.DOB }}</td>
+                            <td>{{teacher.NID }}</td>
+                            <!--<td>{{teacher.phone_number_id}}</td>-->
                             <td><div class="btn-group">
                                 <a href="#/members/{{member.NIC}}" class="btn btn-info btn-xs"  style="color: #ffffff" role="button"><i class="fa fa-user"></i> Profile</a>
 
