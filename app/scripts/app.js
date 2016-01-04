@@ -40,19 +40,19 @@ angular
 
 
                     ]
-                }),
+                })
                 $ocLazyLoad.load(
                 {
                    name:'toggle-switch',
                    files:["bower_components/angular-toggle-switch/angular-toggle-switch.min.js",
                           "bower_components/angular-toggle-switch/angular-toggle-switch.css"
                       ]
-                }),
+                })
                 $ocLazyLoad.load(
                 {
                   name:'ngAnimate',
                   files:['bower_components/angular-animate/angular-animate.js']
-                })
+                }),
                 $ocLazyLoad.load(
                 {
                   name:'ngCookies',
@@ -107,8 +107,8 @@ angular
         templateUrl:'views/pages/login.html',
         url:'/login'
     })
-      .state('dashboard.chart',{
-        templateUrl:'views/chart.html',
+      .state('dashboard.students',{
+        templateUrl:'views/students.html',
         url:'/chart',
         controller:'ChartCtrl',
         resolve: {
