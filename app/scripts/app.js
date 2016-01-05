@@ -52,7 +52,7 @@ angular
                 {
                   name:'ngAnimate',
                   files:['bower_components/angular-animate/angular-animate.js']
-                }),
+                })
                 $ocLazyLoad.load(
                 {
                   name:'ngCookies',
@@ -99,6 +99,10 @@ angular
         templateUrl:'views/form.html',
         url:'/form'
     })
+        .state('dashboard.studentProfile',{
+            templateUrl:'views/students/studentProfile.html',
+            url:'/studentProfile'
+        })
       .state('dashboard.blank',{
         templateUrl:'views/pages/blank.html',
         url:'/blank'
