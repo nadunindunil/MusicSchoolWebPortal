@@ -103,6 +103,10 @@ angular
             templateUrl:'views/students/studentProfile.html',
             url:'/studentProfile'
         })
+        .state('dashboard.teacherProfile',{
+            templateUrl:'views/teacher/teacherProfile.html',
+            url:'/teacherProfile'
+        })
       .state('dashboard.blank',{
         templateUrl:'views/pages/blank.html',
         url:'/blank'
