@@ -1,63 +1,20 @@
-## Music School Web portal using angularJS
+# MEAN Stack Single Page Application Starter
 
-This project is using famous Free Admin Bootstrap Theme [SB Admin v2.0](http://startbootstrap.com/template-overviews/sb-admin-2/) to Angular Theme.
-
-####original angular project
-```sh
-https://github.com/start-angular/sb-admin-angular.git
-```
+This is a repo for a starter appliation for a Single Page MEAN Stack application. Just download and install and you have a good foundation for building application. 
 
 ## Installation
-####1. Clone this project or Download that ZIP file
+1. Download the repository
+2. Install npm modules: `npm install`
+3. Install bower dependencies `bower install`
+4. Start up the server: `node server.js`
+5. View in browser at http://localhost:8080
 
-```sh
-$ git clone https://github.com/nadunindunil/MusicSchoolWebPortal.git 
-```
+Use this starter kit to build any MEAN stack application you like.
 
-####2.  Make sure you have [bower](http://bower.io/), [grunt-cli](https://www.npmjs.com/package/grunt-cli) and  [npm](https://www.npmjs.org/) installed globally
- 
- 
-```sh
-$ sudo apt-get install npm
-$ sudo npm install -g grunt-cli
-$ sudo npm install -g bower
-```
-####3. On the command prompt run the following commands
+If you have any questions or requests, email us at [chris@scotch.io](mailto:chris@scotch.io) and we'll keep updating this to make it perfect.
 
-```sh
-$ cd `project-directory`
-```
-- bower install is ran from the postinstall
-```sh
-$ npm install 
-```
-- a shortcut for `grunt serve`
-```sh
-$ npm start
-```
-- a shortcut for `grunt serve:dist` to minify the files for deployment
-```sh
-$ npm run dist 
-```
-
-
-**Note:**
-If you get this following error, 
-```text
-Error: EACCES, permission denied '.config/configstore/insight-bower.yml'
-You don't have access to this file.
-```
-changing ownner .config
-
-```sh
-sudo chown -R [user name] ~/.config
-```
-
-
-## Roadmap
-
-- Add sample AJAX calls and make the directives more modular
-
-### Automation tools
-
-- [Grunt](http://gruntjs.com/)
+## Future Additions
+- CRUD examples
+- Development and Production Environments
+- Link examples
+- Single Page AngularJS Animations
