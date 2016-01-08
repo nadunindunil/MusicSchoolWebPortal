@@ -140,8 +140,18 @@ angular
         }
     })
       .state('dashboard.teachers',{
-        templateUrl:'views/teachers.html',
-        url:'/teachers'
+
+            templateUrl:'views/teachers.html',
+            controller: 'TeachersCtrl',
+            url:'/teachers',
+            resolve: {
+                loadMyFile:function($ocLazyLoad) {
+                    return $ocLazyLoad.load({
+                            name:'sbAdminApp',
+                            files:['scripts/controllers/teacherController.js']
+                        })
+                }
+            }
     })
       .state('dashboard.panels-wells',{
           templateUrl:'views/ui-elements/panels-wells.html',

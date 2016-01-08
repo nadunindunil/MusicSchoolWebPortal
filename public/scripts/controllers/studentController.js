@@ -24,7 +24,7 @@ angular.module('sbAdminApp')
             $log.error(err);
         });
 
-    $http.get('http://localhost:8080/api/getData')
+    $http.get('http://localhost:3000/getStudentsList')
         .success(function(data){
             $scope.Students = data;
             console.log(data);
