@@ -134,7 +134,11 @@ angular
             }),
             $ocLazyLoad.load({
                 name:'sbAdminApp',
-                files:['scripts/controllers/studentController.js']
+                files:[
+                    'scripts/controllers/studentController.js',
+                    'scripts/directives/validate.js'
+
+                ]
             })
           }
         }

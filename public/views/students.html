@@ -16,102 +16,17 @@
             </button>
 
             <!-- Modal -->
-            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
-                <div class="modal-dialog">
+            <div class="modal fade bs-example-modal-lg" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
+                <div class="modal-dialog modal-lg">
                     <div class="modal-content">
                         <div class="modal-header">
                             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                             <h4 class="modal-title" id="myModalLabel"> Add new Student</h4>
                         </div>
                         <div class="modal-body" >
-                            <form data-toggle="validator" role="form">
+                            <form name="form" role="form" class="form-horizontal form-label-left" novalidate>
                                 <div class="row" style="padding-left: 15px;">
-                                    <div class="col-lg-9 col-lg-offset-1 form">
-                                        <div class="row from-group" style="padding-bottom: 5px">
-                                            <label class="pull-left" style="padding-left: 1cm">ID :</label>
-
-                                            <input class="form-control pull-right" minlength="7" data-minlength="7" maxlength="7"
-                                                   style="width: 300px; height: 35px" data-ng-model="sID" type="text" placeholder="ID">
-                                        </div>
-                                        <div class="row from-group" style="padding-bottom: 5px">
-                                            <label class="pull-left" style="padding-left: 1cm">Name :</label>
-
-                                            <input class="form-control pull-right"
-                                                   style="width: 300px; height: 35px" data-ng-model="fullname" type="text" placeholder="Name">
-                                        </div>
-                                        <div class="row from-group" style="padding-bottom: 5px">
-                                            <label class="pull-left" style="padding-left: 1cm;">gender :</label>
-
-                                            <select class="form-control pull-right" data-ng-model="sgender" style="width: 300px; height: 35px">
-                                                <option>MALE</option>
-                                                <option>FEMALE</option>
-
-                                            </select>
-
-
-                                        </div>
-
-                                        <div class="row from-group" style="padding-bottom: 5px">
-                                            <label class="pull-left" style="padding-left: 1cm;">Access Level:</label>
-
-                                            <select class="form-control pull-right" data-ng-model="accLevel" style="width: 300px; height: 35px">
-                                                <option>Admin</option>
-                                                <option>User</option>
-
-                                            </select>
-
-
-                                        </div>
-
-
-                                        <div class="row from-group" style="padding-bottom: 5px">
-                                            <label class="pull-left" style="padding-left: 1cm">Date of Birth :</label>
-
-
-                                            <input class="form-control pull-right"
-                                                   style="width: 300px; height: 35px" data-ng-model="dob" type="date">
-
-                                        </div>
-
-                                        <div class="row from-group" style="padding-bottom: 5px">
-                                            <label class="pull-left" style="padding-left: 1cm">Course ID:</label>
-
-                                            <select  class="form-control pull-right" data-ng-model="course" style="width: 300px; height: 35px">
-                                                <option data-ng-repeat="crs in Courses" value="{{crs.course_ID}}"> {{crs.title}}</option>
-                                                <!--<option> dummycourse2</option>-->
-
-                                            </select>
-
-
-                                        </div>
-                                        <div class="row from-group" style="padding-bottom: 5px">
-                                            <label class="pull-left" style="padding-left: 1cm">Per.Group ID:</label>
-
-                                            <select class="form-control pull-right" data-ng-model="perGroup" style="width: 300px; height: 35px">
-                                                <option data-ng-repeat="grp in Groups" value="{{grp.group_ID}}"> {{grp.group_ID}}</option>
-
-                                            </select>
-                                        </div>
-
-                                        <div class="row from-group" style="padding-bottom: 5px" >
-                                            <label class="pull-left" style="padding-left: 1cm">Telephone:</label>
-
-                                            <input class="form-control pull-right"
-                                                   style="width: 300px; height: 35px" data-ng-model="telePhone" type="text"
-                                                   placeholder="Telephone" minlength="10" data-minlength="10" maxlength="10">
-
-                                        </div>
-
-                                        <div class="row from-group" style="padding-bottom: 5px">
-                                            <label class="pull-left" style="padding-left: 1cm">Address:</label>
-
-                                            <input class="form-control pull-right"
-                                                   style="width: 300px; height: 35px" data-ng-model="address" type="text" placeholder="Address">
-                                        </div>
-
-
-
-                                    </div>
+                                    
                                 </div>
                             </form>
                         </div>
