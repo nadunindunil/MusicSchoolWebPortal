@@ -4,12 +4,11 @@
 
 'use strict';
 
-$('form')
-    .on('blur', 'input[required], input.optional, select.required', validator.checkField)
-    .on('change', 'select.required', validator.checkField)
-    .on('keypress', 'input[required][pattern]', validator.keypress);
+$('.modal').on('hidden.bs.modal', function(){
+    $(this).find('form')[0].reset();
+});
 
-$('.multi.required')
-    .on('keyup blur', 'input', function () {
-        validator.checkField.apply($(this).siblings().last()[0]);
-    });
+var resetForm1 = function(){
+
+    document.getElementById("form1").reset();
+};
