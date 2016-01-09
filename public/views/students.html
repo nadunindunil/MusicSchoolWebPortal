@@ -24,7 +24,7 @@
                             <h4 class="modal-title" id="myModalLabel"> Add new Student</h4>
                         </div>
                         <div class="modal-body" >
-                            <form data-parsley-validate data-parsley-trigger="keyup" name="form" role="form" class="form-horizontal form-label-left" novalidate>
+                            <form name="form" role="form" class="form-horizontal form-label-left" novalidate>
                                 <div class="row" style="padding-left: 15px;">
 
 
@@ -35,7 +35,7 @@
                                             <input type="text" id="ID"  data-ng-model="sID" name="sID"
                                                    integer required ng-model-options="{ updateOn: 'blur' }" minlength="7" data-minlength="7" maxlength="7"
                                                    class="form-control col-md-7 col-xs-12">
-                                            
+
                                             <span style="color:red" ng-show="form.sID.$error.integer"> *should be a number</span>
                                             <span style="color:red" ng-show="form.sID.$touched && form.sID.$invalid">
                                             <span ng-show="form.sID.$error.required">*ID is required.</span>
@@ -121,12 +121,12 @@
                                     <div class="form-group">
                                         <label class="control-label col-md-3 col-sm-3 col-xs-12">Telephone <span class="required">*</span></label>
                                         <div class="col-md-6 col-sm-6 col-xs-12">
-                                            <input integer required class="form-control" name="telePhone"
-                                                   data-ng-model="telePhone" type="text"
+                                            <input integer ng-model-options="{ debounce: 500 }" required class="form-control" name="telePhone"
+                                                   data-ng-model="telephone" type="text"
                                                    placeholder="Telephone" minlength="10" data-minlength="10" maxlength="10">
                                             <span style="color:red" ng-show="form.telePhone.$error.integer"> *should be a number</span>
                                             <span style="color:red" ng-show="form.telePhone.$touched && form.telePhone.$invalid">
-                                            <span ng-show="form.telePhone.$error.required">*ID is required.</span>
+                                            <span ng-show="form.telePhone.$error.required">*telephone number is required.</span>
                                             </span>
                                             <span style="color:red" ng-show="form.telePhone.$error.minlength"> *should be 10 digits</span>
                                         </div>

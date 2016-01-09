@@ -26,7 +26,7 @@ angular.module('sbAdminApp')
         var tel = $scope.telephone;
         var add = $scope.address;
 
-        console.log(id,gender,name,dob);
+        console.log(id,gender,name,dob,nic,acclevel,tel,add);
 
         $http.post('http://localhost:3000/insertTeacher',{
             ID: id,

@@ -152,7 +152,8 @@ angular
                 loadMyFile:function($ocLazyLoad) {
                     return $ocLazyLoad.load({
                             name:'sbAdminApp',
-                            files:['scripts/controllers/teacherController.js']
+                            files:['scripts/controllers/teacherController.js',
+                                   'scripts/directives/validate.js']
                         })
                 }
             }
