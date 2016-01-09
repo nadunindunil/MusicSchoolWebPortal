@@ -66,7 +66,7 @@ angular.module('sbAdminApp')
         var tel = $scope.telePhone;
         var add = $scope.address;
 
-        console.log(id,gender,name,dob,pergroup,course  );
+        console.log(id,gender,name,dob,pergroup,course );
 
         //$http.post('http://localhost:3000/insertTelNum',{
         //    ID: id,

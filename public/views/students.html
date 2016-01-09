@@ -26,7 +26,90 @@
                         <div class="modal-body" >
                             <form name="form" role="form" class="form-horizontal form-label-left" novalidate>
                                 <div class="row" style="padding-left: 15px;">
-                                    
+
+
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="ID">ID <span class="required">*</span>
+                                        </label>
+                                        <div class="col-md-6 col-sm-6 col-xs-12">
+                                            <input type="text" id="ID" required="required" data-ng-model="sID" name="sID"
+                                                   integer minlength="7" data-minlength="7" maxlength="7"
+                                                   class="form-control col-md-7 col-xs-12">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="full-name">Full Name <span class="required">*</span>
+                                        </label>
+                                        <div class="col-md-6 col-sm-6 col-xs-12">
+                                            <input type="text" data-ng-model="fullname" id="full-name" name="full-name" required="required" class="form-control col-md-7 col-xs-12">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Gender</label>
+                                        <div class="col-md-6 col-sm-6 col-xs-12">
+                                            <select class="form-control" data-ng-model="sgender" >
+                                                <option>MALE</option>
+                                                <option>FEMALE</option>
+
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Access Level</label>
+                                        <div class="col-md-6 col-sm-6 col-xs-12">
+                                            <select class="form-control" data-ng-model="accLevel" >
+                                                <option>Admin</option>
+                                                <option>User</option>
+
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Course</label>
+                                        <div class="col-md-6 col-sm-6 col-xs-12">
+                                            <select  class="form-control" data-ng-model="course">
+                                                <option data-ng-repeat="crs in Courses" value="{{crs.course_ID}}"> {{crs.title}}</option>
+                                                <!--<option> dummycourse2</option>-->
+
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Date Of Birth <span class="required">*</span>
+                                        </label>
+                                        <div class="col-md-6 col-sm-6 col-xs-12">
+                                            <input id="birthday" data-ng-model="dob" type="date" class="date-picker form-control col-md-7 col-xs-12" required="required" type="text">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Performance Group ID</label>
+                                        <div class="col-md-6 col-sm-6 col-xs-12">
+                                            <select class="form-control" data-ng-model="perGroup">
+                                                <option data-ng-repeat="grp in Groups" value="{{grp.group_ID}}"> {{grp.group_ID}}</option>
+
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Telephone </label>
+                                        <div class="col-md-6 col-sm-6 col-xs-12">
+                                            <input class="form-control"
+                                                   data-ng-model="telePhone" type="text"
+                                                   placeholder="Telephone" minlength="10" data-minlength="10" maxlength="10">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Address </label>
+                                        <div class="col-md-6 col-sm-6 col-xs-12">
+                                            <input class="form-control pull-right"
+                                                   data-ng-model="address" type="text" placeholder="Address">
+                                        </div>
+                                    </div>
                                 </div>
                             </form>
                         </div>
