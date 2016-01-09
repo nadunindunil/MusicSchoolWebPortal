@@ -35,6 +35,7 @@
                                             <input type="text" id="ID"  data-ng-model="sID" name="sID"
                                                    integer required ng-model-options="{ updateOn: 'blur' }" minlength="7" data-minlength="7" maxlength="7"
                                                    class="form-control col-md-7 col-xs-12">
+                                            
                                             <span style="color:red" ng-show="form.sID.$error.integer"> *should be a number</span>
                                             <span style="color:red" ng-show="form.sID.$touched && form.sID.$invalid">
                                             <span ng-show="form.sID.$error.required">*ID is required.</span>
@@ -53,7 +54,7 @@
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Gender</label>
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Gender <span class="required">*</span></label>
                                         <div class="col-md-6 col-sm-6 col-xs-12">
                                             <select class="form-control" data-ng-model="sgender" name="sgender" required>
                                                 <option>MALE</option>
@@ -67,23 +68,29 @@
                                     </div>
 
                                     <div class="form-group">
-                                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Access Level</label>
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Access Level <span class="required">*</span></label>
                                         <div class="col-md-6 col-sm-6 col-xs-12">
-                                            <select class="form-control" data-ng-model="accLevel" >
+                                            <select class="form-control" data-ng-model="accLevel" name="accLevel" required>
                                                 <option>Admin</option>
                                                 <option>User</option>
 
                                             </select>
+                                            <span style="color:red" ng-show="form.accLevel.$touched && form.accLevel.$invalid">
+                                            <span ng-show="form.accLevel.$error.required">*Access level is required.</span>
+                                            </span>
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Course</label>
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Course <span class="required">*</span></label>
                                         <div class="col-md-6 col-sm-6 col-xs-12">
-                                            <select  class="form-control" data-ng-model="course">
+                                            <select  class="form-control" data-ng-model="course" name="course" required>
                                                 <option data-ng-repeat="crs in Courses" value="{{crs.course_ID}}"> {{crs.title}}</option>
                                                 <!--<option> dummycourse2</option>-->
 
                                             </select>
+                                            <span style="color:red" ng-show="form.course.$touched && form.course.$invalid">
+                                            <span ng-show="form.course.$error.required">*course is required.</span>
+                                            </span>
                                         </div>
                                     </div>
 
@@ -91,27 +98,39 @@
                                         <label class="control-label col-md-3 col-sm-3 col-xs-12">Date Of Birth <span class="required">*</span>
                                         </label>
                                         <div class="col-md-6 col-sm-6 col-xs-12">
-                                            <input id="birthday" data-ng-model="dob" type="date" class="date-picker form-control col-md-7 col-xs-12" required="required" type="text">
+                                            <input id="birthday" data-ng-model="dob" name="dob" type="date" class="date-picker form-control col-md-7 col-xs-12" required type="text">
+                                            <span style="color:red" ng-show="form.dob.$touched && form.dob.$invalid">
+                                            <span ng-show="form.dob.$error.required">*Date of Birth is required.</span>
+                                            </span>
                                         </div>
                                     </div>
 
                                     <div class="form-group">
-                                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Performance Group ID</label>
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Performance Group ID <span class="required">*</span></label>
                                         <div class="col-md-6 col-sm-6 col-xs-12">
-                                            <select class="form-control" data-ng-model="perGroup">
+                                            <select class="form-control" data-ng-model="perGroup" name="perGroup" required>
                                                 <option data-ng-repeat="grp in Groups" value="{{grp.group_ID}}"> {{grp.group_ID}}</option>
 
                                             </select>
+                                            <span style="color:red" ng-show="form.perGroup.$touched && form.perGroup.$invalid">
+                                            <span ng-show="form.perGroup.$error.required">*Performance Group ID is required.</span>
+                                            </span>
                                         </div>
                                     </div>
 
                                     <div class="form-group">
-                                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Telephone </label>
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Telephone <span class="required">*</span></label>
                                         <div class="col-md-6 col-sm-6 col-xs-12">
-                                            <input class="form-control"
+                                            <input integer required class="form-control" name="telePhone"
                                                    data-ng-model="telePhone" type="text"
                                                    placeholder="Telephone" minlength="10" data-minlength="10" maxlength="10">
+                                            <span style="color:red" ng-show="form.telePhone.$error.integer"> *should be a number</span>
+                                            <span style="color:red" ng-show="form.telePhone.$touched && form.telePhone.$invalid">
+                                            <span ng-show="form.telePhone.$error.required">*ID is required.</span>
+                                            </span>
+                                            <span style="color:red" ng-show="form.telePhone.$error.minlength"> *should be 10 digits</span>
                                         </div>
+
                                     </div>
 
                                     <div class="form-group">
