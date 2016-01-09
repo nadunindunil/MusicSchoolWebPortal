@@ -35,27 +35,34 @@
                                             <input type="text" id="ID"  data-ng-model="sID" name="sID"
                                                    integer required ng-model-options="{ updateOn: 'blur' }" minlength="7" data-minlength="7" maxlength="7"
                                                    class="form-control col-md-7 col-xs-12">
-                                            <p ng-show="form.sID.$error.integer"> *should be a number</p>
+                                            <span style="color:red" ng-show="form.sID.$error.integer"> *should be a number</span>
                                             <span style="color:red" ng-show="form.sID.$touched && form.sID.$invalid">
-                                            <span ng-show="form.sID.$error.required">*Username is required.</span>
+                                            <span ng-show="form.sID.$error.required">*ID is required.</span>
                                             </span>
+                                            <span style="color:red" ng-show="form.sID.$error.minlength"> *should be 7 digits</span>
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="full-name">Full Name <span class="required">*</span>
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="fullname">Full Name <span class="required">*</span>
                                         </label>
                                         <div class="col-md-6 col-sm-6 col-xs-12">
-                                            <input type="text" data-ng-model="fullname" id="full-name" name="full-name" required="required" class="form-control col-md-7 col-xs-12">
+                                            <input type="text" data-ng-model="fullname" id="fullname" name="fullname" required="required" class="form-control col-md-7 col-xs-12">
+                                            <span style="color:red" ng-show="form.fullname.$touched && form.fullname.$invalid">
+                                            <span ng-show="form.fullname.$error.required">*name is required.</span>
+                                            </span>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label col-md-3 col-sm-3 col-xs-12">Gender</label>
                                         <div class="col-md-6 col-sm-6 col-xs-12">
-                                            <select class="form-control" data-ng-model="sgender" >
+                                            <select class="form-control" data-ng-model="sgender" name="sgender" required>
                                                 <option>MALE</option>
                                                 <option>FEMALE</option>
 
                                             </select>
+                                            <span style="color:red" ng-show="form.sgender.$touched && form.sgender.$invalid">
+                                            <span ng-show="form.sgender.$error.required">*gender is required.</span>
+                                            </span>
                                         </div>
                                     </div>
 

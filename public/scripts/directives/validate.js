@@ -26,5 +26,19 @@ angular.module('sbAdminApp')
     };
 });
 
-
+//angular.module('sbAdminApp')
+//    .directive('cusLength', function() {
+//        return {
+//            require: 'ngModel',
+//            scope: {
+//                cusLength: '='
+//            },
+//            link: function($scope, $element, $attrs, ngModel) {
+//                $scope.$watch($attrs.ngModel, function(value) {
+//                    var isValid = (value.length === $scope.cusLength);
+//                    ngModel.$setValidity($attrs.ngModel, isValid);
+//                });
+//            }
+//        };
+//    });
 
