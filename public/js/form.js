@@ -12,3 +12,4 @@ var resetForm1 = function(){
 
     document.getElementById("form1").reset();
 };
+

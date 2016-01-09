@@ -24,7 +24,7 @@
                             <h4 class="modal-title" id="myModalLabel"> Add new Student</h4>
                         </div>
                         <div class="modal-body" >
-                            <form name="form" role="form" class="form-horizontal form-label-left" novalidate>
+                            <form id="form1" name="form" role="form" class="form-horizontal form-label-left" novalidate>
                                 <div class="row" style="padding-left: 15px;">
 
 
@@ -146,10 +146,10 @@
                                     <div class="form-group">
                                         <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
 
-                                            <button type="reset" class="btn btn-default" data-dismiss="modal">Close</button>
+                                            <button data-dismiss="modal" onclick="resetForm1()" class="btn btn-default" >Close</button>
                                             <button class="btn btn-success" type="button"
                                                     data-ng-disabled="!sID || !fullname || !sgender || !dob || !course || !accLevel || !sgender || !perGroup"
-                                                    data-ng-click=" addStudent();" data-dismiss="modal"> Add Student</button>
+                                                    onclick="resetForm1()" data-ng-click=" addStudent();" data-dismiss="modal"> Add Student</button>
                                         </div>
                                     </div>
 
