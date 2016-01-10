@@ -37,4 +37,28 @@ angular.module('sbAdminApp')
             .error(function(err){
                 $log.error(err);
             });
+
+
+        $scope.addCourse = function(){
+
+            var id = $scope.sID;
+            var title = $scope.fullname;
+            var teacher = $scope.teacherID;
+            var tslot = $scope.tsID;
+
+
+            console.log(id,title,teacher,tslot);
+
+            $http.post('http://localhost:3000/insertCourse',{
+                course_ID: id,
+                title: title,
+                time_slot_ID: tslot,
+                teacher_ID: teacher
+
+
+            });
+
+
+
+        }
 }]);

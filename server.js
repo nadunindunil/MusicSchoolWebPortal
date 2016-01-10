@@ -241,6 +241,28 @@ app.post('/insertTeacher', function (req, res) {
 	res.end('done');
 
 });
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+app.post('/insertCourse', function (req, res) {
+
+
+
+
+	var post  = {
+		teacher_ID: req.body.teacher_ID,
+		title: req.body.title,
+		time_slot_ID: req.body.time_slot_ID,
+		course_ID: req.body.course_ID
+		 };
+
+	var query = connection.query('INSERT INTO course SET ?', post, function(err, result) {
+		// Neat!
+	});
+	console.log(query.sql);
+	res.end('done');
+
+});
 //////////////////////////////////////////////////////////////////////////////////////////////
 
 
