@@ -111,9 +111,10 @@ angular
             templateUrl:'views/events/events.html',
             url:'/events'
         })
-      .state('dashboard.blank',{
-        templateUrl:'views/pages/blank.html',
-        url:'/blank'
+          .state('dashboard.courses',{
+            templateUrl:'views/courses.html',
+            url:'/courses',
+            controller:'CoursesCtrl'
     })
       .state('login',{
         templateUrl:'views/pages/login.html',
