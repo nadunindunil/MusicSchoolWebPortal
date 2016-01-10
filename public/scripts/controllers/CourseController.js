@@ -14,6 +14,27 @@ angular.module('sbAdminApp')
         })
         .error(function(err){
             $log.error(err);
-        })
+        });
 
+
+
+
+        $http.get('http://localhost:3000/getTeachersList')
+            .success(function(data){
+                $scope.Teachers = data;
+                console.log(data);
+            })
+            .error(function(err){
+                $log.error(err);
+            });
+
+
+        $http.get('http://localhost:3000/getTeachersList')
+            .success(function(data){
+                $scope.Teachers = data;
+                console.log(data);
+            })
+            .error(function(err){
+                $log.error(err);
+            });
 }]);

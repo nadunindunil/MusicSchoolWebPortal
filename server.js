@@ -139,6 +139,21 @@ app.get('/getPerfGrpsList', function(req, res){
 
 });
 
+///////////////////////////////////////////////////////////////////////////////////////////////////////
+
+app.get('/getTimeSlotList', function(req, res){
+	//connection.connect();
+
+	connection.query('SELECT * FROM time_slots', function(err, rows, fields) {
+		if (err) throw err;
+		res.json(rows);
+		console.log('The solution is: ', rows);
+	});
+
+	//connection.end();
+
+
+});
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////
 
