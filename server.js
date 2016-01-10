@@ -62,6 +62,22 @@ app.get('/getTeachersList', function(req, res){
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////
 
+app.get('/getTeachersCourseList', function(req, res){
+	//connection.connect();
+
+	connection.query('SELECT * FROM teacher LEFT JOIN course ON teacher.teacher_ID=course.teacher_ID', function(err, rows, fields) {
+		if (err) throw err;
+		res.json(rows);
+		console.log('The solution is: ', rows);
+	});
+
+	//connection.end();
+
+
+});
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////
+
 app.get('/getCoursesList', function(req, res){
 	//connection.connect();
 

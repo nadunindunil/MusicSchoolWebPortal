@@ -6,7 +6,7 @@ angular.module('sbAdminApp')
     .controller('TeachersCtrl',['$scope','$http','$log', function($scope,$http,$log){
 
 
-    $http.get('http://localhost:3000/getTeachersList')
+    $http.get('http://localhost:3000/getTeachersCourseList')
         .success(function(data){
             $scope.Teachers = data;
             console.log(data);
@@ -14,6 +14,16 @@ angular.module('sbAdminApp')
         .error(function(err){
             $log.error(err);
         });
+
+        $http.get('http://localhost:3000/getCoursesList')
+            .success(function(data){
+                $scope.Courses = data;
+                console.log(data);
+            })
+            .error(function(err){
+                $log.error(err);
+            });
+
 
     $scope.addTeacher = function(){
 
