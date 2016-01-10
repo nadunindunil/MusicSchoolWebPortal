@@ -29,9 +29,9 @@ angular.module('sbAdminApp')
             });
 
 
-        $http.get('http://localhost:3000/getTeachersList')
+        $http.get('http://localhost:3000/getTimeSlotList')
             .success(function(data){
-                $scope.Teachers = data;
+                $scope.TimeSlots = data;
                 console.log(data);
             })
             .error(function(err){
