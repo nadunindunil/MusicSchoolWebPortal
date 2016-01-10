@@ -1,18 +1,18 @@
 <div class="row">
     <ol class="breadcrumb" style="background-color: transparent">
         <li><a href="#/home"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active"><i class="fa fa-group"></i> Students</li>
+        <li class="active"><i class="fa fa-bookmark"></i> Courses</li>
     </ol>
 
 </div>
 <div class="row ">
     <div class="col-lg-12">
-        <h4> Students Management</h4>
+        <h4> Courses Management</h4>
         <div class="under">
 
             <!-- Button trigger modal -->
             <button class="btn btn-success btn-xs" data-toggle="modal" data-target="#myModal"><i class="fa fa-plus"></i>
-                New Student
+                New Course
             </button>
 
             <!-- Modal -->
@@ -21,7 +21,7 @@
                     <div class="modal-content">
                         <div class="modal-header">
                             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                            <h4 class="modal-title" id="myModalLabel"> Add new Student</h4>
+                            <h4 class="modal-title" id="myModalLabel"> Add new Course</h4>
                         </div>
                         <div class="modal-body" >
                             <form id="form1" name="form" role="form" class="form-horizontal form-label-left" novalidate>
@@ -171,7 +171,7 @@
         <div class="x_panel" ng-controller="StudentsCtrl">
             <div class="x_title clearfix">
 
-                <div class="pull-left"> <h5>Registered Students ({{Students.length}})</h5> </div>
+                <div class="pull-left"> <h5>Courses ({{Students.length}})</h5> </div>
                 <input class="form-control pull-right" data-ng-model="query" type="text" class="form-control empty" id="iconified" placeholder="&#xF002; Search.." style="width: 180px;height: 30px;font-family:Arial, FontAwesome">
 
             </div>
@@ -181,12 +181,9 @@
                         <thead>
                         <tr>
                             <th>ID</th>
-                            <th>Name</th>
-                            <th>Gender</th>
-                            <th>DOB</th>
-                            <th>course ID</th>
-                            <th>performance group ID</th>
-                            <!--<th>phone numbers</th>-->
+                            <th>title</th>
+                            <th>Time Slot</th>
+                            <th>Teacher</th>
                             <th>Action</th>
                         </tr>
                         </thead>
@@ -196,14 +193,8 @@
                             <td>{{student.name}}</td>
                             <td>{{student.gender}}</td>
                             <td>{{student.DOB }}</td>
-                            <td>{{student.course_ID}}</td>
-                            <td>{{student.performance_group_ID }}</td>
-                            <!--<td>-->
-                            <!--<ul ng-init="nums = findTelNums(student.ID)">-->
-                            <!--<li>{{nums[0]}}</li>-->
-                            <!--</ul>-->
 
-                            <!--</td>-->
+
                             <td><div class="btn-group">
                                 <a href="#/members/{{member.NIC}}" class="btn btn-info btn-xs"  style="color: #ffffff" role="button"><i class="fa fa-user"></i> Profile</a>
 
