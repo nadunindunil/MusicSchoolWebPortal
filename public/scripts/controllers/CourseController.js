@@ -7,7 +7,7 @@ angular.module('sbAdminApp')
     .controller('CoursesCtrl',['$scope','$http','$log', function($scope,$http,$log){
 
 
-    $http.get('http://localhost:3000/getCoursesList')
+    $http.get('http://localhost:3000/getTimeSlotsTeachersCourseList')
         .success(function(data){
             $scope.Courses = data;
             console.log(data);

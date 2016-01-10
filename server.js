@@ -78,6 +78,21 @@ app.get('/getTeachersCourseList', function(req, res){
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////
 
+app.get('/getTimeSlotsTeachersCourseList', function(req, res){
+	//connection.connect();
+
+	connection.query('SELECT * FROM time_slots INNER JOIN course ON time_slots.slot_ID=course.time_slot_ID INNER JOIN teacher ON teacher.teacher_ID=course.teacher_ID', function(err, rows, fields) {
+		if (err) throw err;
+		res.json(rows);
+		console.log('The solution is: ', rows);
+	});
+
+	//connection.end();
+
+
+});
+///////////////////////////////////////////////////////////////////////////////////////////////////////
+
 app.get('/getCoursesList', function(req, res){
 	//connection.connect();
 
