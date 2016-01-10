@@ -168,10 +168,10 @@
             </div>
         </div>
 
-        <div class="x_panel" ng-controller="StudentsCtrl">
+        <div class="x_panel" ng-controller="CoursesCtrl">
             <div class="x_title clearfix">
 
-                <div class="pull-left"> <h5>Courses ({{Students.length}})</h5> </div>
+                <div class="pull-left"> <h5>Courses ({{Courses.length}})</h5> </div>
                 <input class="form-control pull-right" data-ng-model="query" type="text" class="form-control empty" id="iconified" placeholder="&#xF002; Search.." style="width: 180px;height: 30px;font-family:Arial, FontAwesome">
 
             </div>
@@ -188,11 +188,11 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <tr class="repeat-animation" data-ng-repeat="student in Students track by $index">
-                            <td>{{student.ID}}</td>
-                            <td>{{student.name}}</td>
-                            <td>{{student.gender}}</td>
-                            <td>{{student.DOB }}</td>
+                        <tr class="repeat-animation" data-ng-repeat="crse in Courses track by $index">
+                            <td>{{crse.course_ID}}</td>
+                            <td>{{crse.title}}</td>
+                            <td>{{crse.time_slot_ID}}</td>
+                            <td>{{crse.teacher_ID }}</td>
 
 
                             <td><div class="btn-group">

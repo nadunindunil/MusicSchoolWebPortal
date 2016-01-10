@@ -114,7 +114,15 @@ angular
           .state('dashboard.courses',{
             templateUrl:'views/courses.html',
             url:'/courses',
-            controller:'CoursesCtrl'
+            controller:'CoursesCtrl',
+            resolve: {
+                loadMyFile:function($ocLazyLoad) {
+                    return $ocLazyLoad.load({
+                        name:'sbAdminApp',
+                        files:['scripts/controllers/courseController.js']
+                    })
+                }
+            }
     })
       .state('login',{
         templateUrl:'views/pages/login.html',
