@@ -174,12 +174,12 @@
                                     </div>
 
                                     <div ng-show="cousin && form.cousin.$dirty" ng-hide="!cousin || !form.cousin.$dirty" class="form-group">
-                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="parentID"> parent ID <span class="required">*</span>
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="parentID"> parent NIC <span class="required">*</span>
                                         </label>
                                         <div class="col-md-6 col-sm-6 col-xs-12">
                                             <input type="text" id="parentID"  data-ng-model="pID" name="pID"
                                                    ng-class="{textred: form.pID.$error.integer || form.pID.$error.minlength || (form.pID.$error.required && form.pID.$invalid && form.pID.$touched)}"
-                                                   integer required ng-model-options="{ updateOn: 'blur' }" minlength="7" data-minlength="7" maxlength="7"
+                                                   integer required ng-model-options="{ updateOn: 'blur' }" minlength="9" data-minlength="9" maxlength="9"
                                                    class="form-control col-md-7 col-xs-12">
 
                                             <span style="color:red" ng-show="form.pID.$error.integer"> *should be a number</span>
@@ -188,6 +188,46 @@
                                             </span>
                                             <span style="color:red" ng-show="form.pID.$error.minlength"> *should be 7 digits</span>
                                         </div>
+                                    </div>
+
+                                    <div ng-show="cousin && form.cousin.$dirty" ng-hide="!cousin || !form.cousin.$dirty" class="form-group">
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="fullname">Parent Name <span class="required">*</span>
+                                        </label>
+                                        <div class="col-md-6 col-sm-6 col-xs-12">
+                                            <input ng-class="{textred: form.fullname.$touched && form.fullname.$invalid }"
+                                                   type="text" data-ng-model="pname" id="pname" name="pname" required="required" class="form-control col-md-7 col-xs-12">
+                                            <span style="color:red" ng-show="form.pname.$touched && form.pname.$invalid">
+                                            <span ng-show="form.pname.$error.required">*name is required.</span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div ng-show="cousin && form.cousin.$dirty" ng-hide="!cousin || !form.cousin.$dirty" class="form-group">
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Gender <span class="required">*</span></label>
+                                        <div class="col-md-6 col-sm-6 col-xs-12">
+                                            <select class="form-control" data-ng-model="pgender" name="pgender" required>
+                                                <option>MALE</option>
+                                                <option>FEMALE</option>
+
+                                            </select>
+                                            <span style="color:red" ng-show="form.pgender.$touched && form.pgender.$invalid">
+                                            <span ng-show="form.pgender.$error.required">*gender is required.</span>
+                                            </span>
+                                        </div>
+                                    </div>
+
+                                    <div ng-show="cousin && form.cousin.$dirty" ng-hide="!cousin || !form.cousin.$dirty" class="form-group">
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Parent telephone <span class="required">*</span></label>
+                                        <div class="col-md-6 col-sm-6 col-xs-12">
+                                            <input integer ng-model-options="{ debounce: 500 }" required class="form-control" name="ptelePhone"
+                                                   data-ng-model="ptelephone" type="text"
+                                                   placeholder="Telephone" minlength="10" data-minlength="10" maxlength="10">
+                                            <span style="color:red" ng-show="form.ptelePhone.$error.integer"> *should be a number</span>
+                                            <span style="color:red" ng-show="form.ptelePhone.$touched && form.ptelePhone.$invalid">
+                                            <span ng-show="form.ptelePhone.$error.required">*telephone number is required.</span>
+                                            </span>
+                                            <span style="color:red" ng-show="form.ptelePhone.$error.minlength"> *should be 10 digits</span>
+                                        </div>
+
                                     </div>
 
                                     <div class="ln_solid"></div>
