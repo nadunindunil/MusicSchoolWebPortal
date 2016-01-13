@@ -145,6 +145,54 @@
                                     <div class="ln_solid"></div>
 
                                     <div class="form-group">
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12">has a cousin <span class="required">*</span></label>
+                                        <div class="col-md-6 col-sm-6 col-xs-12">
+
+                                            <select class="form-control" id="cousin" data-ng-model="cousin" name="cousin" ng-options="choice == 'no' as choice for choice in ['yes', 'no']" required>
+                                            </select>
+                                            <span style="color:red" ng-show="form.cousin.$touched && form.cousin.$invalid">
+                                            <span ng-show="form.cousin.$error.required">*field is empty.</span>
+                                            </span>
+                                        </div>
+                                    </div>
+
+                                    <div ng-show="!cousin && form.cousin.$dirty" ng-hide="cousin || !form.cousin.$dirty" class="form-group">
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="cousinID"> cousin ID <span class="required">*</span>
+                                        </label>
+                                        <div class="col-md-6 col-sm-6 col-xs-12">
+                                            <input type="text" id="cousinID"  data-ng-model="cID" name="cID"
+                                                   ng-class="{textred: form.cID.$error.integer || form.cID.$error.minlength || (form.cID.$error.required && form.cID.$invalid && form.cID.$touched)}"
+                                                   integer required ng-model-options="{ updateOn: 'blur' }" minlength="7" data-minlength="7" maxlength="7"
+                                                   class="form-control col-md-7 col-xs-12">
+
+                                            <span style="color:red" ng-show="form.cID.$error.integer"> *should be a number</span>
+                                            <span style="color:red" ng-show="form.cID.$touched && form.cID.$invalid">
+                                            <span ng-show="form.cID.$error.required">*ID is required.</span>
+                                            </span>
+                                            <span style="color:red" ng-show="form.cID.$error.minlength"> *should be 7 digits</span>
+                                        </div>
+                                    </div>
+
+                                    <div ng-show="cousin && form.cousin.$dirty" ng-hide="!cousin || !form.cousin.$dirty" class="form-group">
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="parentID"> parent ID <span class="required">*</span>
+                                        </label>
+                                        <div class="col-md-6 col-sm-6 col-xs-12">
+                                            <input type="text" id="parentID"  data-ng-model="pID" name="pID"
+                                                   ng-class="{textred: form.pID.$error.integer || form.pID.$error.minlength || (form.pID.$error.required && form.pID.$invalid && form.pID.$touched)}"
+                                                   integer required ng-model-options="{ updateOn: 'blur' }" minlength="7" data-minlength="7" maxlength="7"
+                                                   class="form-control col-md-7 col-xs-12">
+
+                                            <span style="color:red" ng-show="form.pID.$error.integer"> *should be a number</span>
+                                            <span style="color:red" ng-show="form.pID.$touched && form.pID.$invalid">
+                                            <span ng-show="form.pID.$error.required">*ID is required.</span>
+                                            </span>
+                                            <span style="color:red" ng-show="form.pID.$error.minlength"> *should be 7 digits</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="ln_solid"></div>
+
+                                    <div class="form-group">
                                         <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
 
                                             <button data-dismiss="modal" onclick="resetForm1()" class="btn btn-default" >Close</button>
