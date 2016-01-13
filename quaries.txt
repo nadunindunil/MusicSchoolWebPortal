@@ -1,0 +1,10 @@
+INSERT INTO `g19`.`phone_numbers` (`number_ID`, `location`, `phone_number`) VALUES ('0000002', 'Kottawa', '0719201680');
+INSERT INTO `g19`.`performance_items` (`item_ID`, `item_name`, `description`) VALUES ('002', 'flute concert', 'concert is planned to be done by 5 students.');
+INSERT INTO `g19`.`time_slots` (`slot_ID`, `date`, `time`) VALUES ('002', '2015-12-10', '0730');
+INSERT INTO `g19`.`practice_sessions` (`session_ID`, `time_slot_ID`) VALUES ('001', '002');
+INSERT INTO `g19`.`performance_group` (`group_ID`, `performance_item_ID`, `practice_session_ID`) VALUES ('0001', '002', '001');
+INSERT INTO `g19`.`phone_numbers` (`number_ID`, `location`, `phone_number`) VALUES ('001', 'Kottawa', '0719201680');
+INSERT INTO `g19`.`teacher` (`teacher_ID`, `name`, `DOB`, `gender`, `NID`, `phone_number_id`, `access_level`) VALUES ('0000008', 'Amarapala Senanayake', '2015-12-01', 'MALE', '902810190v', '001', 'admin');
+INSERT INTO `g19`.`time_slots` (`slot_ID`, `date`, `time`) VALUES ('003', '2015-12-09', '1900'), ('005', '2015-12-02', '2000');
+INSERT INTO `g19`.`course` (`course_ID`, `title`, `time_slot_ID`, `teacher_ID`) VALUES ('004', 'North Indian Music', '003', '0000008');
+INSERT INTO `g19`.`student` (`ID`, `name`, `gender`, `DOB`, `access_level`, `course_ID`, `performance_group_ID`, `phone_number_id`) VALUES ('0000005', 'Nadun Indunil', 'MALE', '2015-12-09', 'user', '004', '0001', '001');

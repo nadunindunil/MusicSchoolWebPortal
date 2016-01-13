@@ -1,0 +1,197 @@
+CREATE DATABASE G19;
+
+USE G19;
+
+CREATE TABLE IF NOT EXISTS `time_slots` (
+  `slot_ID` varchar(3) NOT NULL,
+  `date` date NOT NULL,
+  `time` time NOT NULL,
+  PRIMARY KEY (`slot_ID`)
+);
+
+CREATE TABLE IF NOT EXISTS `instrument` (
+  `instrument_ID` varchar(4) NOT NULL,
+  `name` varchar(20) NOT NULL,
+  PRIMARY KEY (`instrument_ID`)
+);
+
+CREATE TABLE IF NOT EXISTS `performance_items` (
+  `item_ID` varchar(3) NOT NULL,
+  `item_name` varchar(20) NOT NULL,
+  `description` text NOT NULL,
+  PRIMARY KEY (`item_ID`)
+);
+
+
+CREATE TABLE IF NOT EXISTS `phone_numbers` (
+  `number_ID` varchar(7) NOT NULL,
+  `location` varchar(15),
+  `phone_number` int(10) NOT NULL,
+  KEY (`number_ID`)
+);
+
+CREATE TABLE IF NOT EXISTS `practice_sessions` (
+  `session_ID` varchar(3) NOT NULL,
+  `time_slot_ID` varchar(3) NOT NULL,
+  PRIMARY KEY (`session_ID`),
+  FOREIGN KEY (`time_slot_ID`) 
+    REFERENCES `time_slots` (`slot_ID`) on delete cascade on update cascade
+);
+
+
+CREATE TABLE IF NOT EXISTS `teacher` (
+  `teacher_ID` varchar(7) NOT NULL,
+  `name` varchar(40) NOT NULL,
+  `DOB` date NOT NULL,
+  `gender` ENUM('MALE','FEMALE') NOT NULL ,
+  `NID` varchar(10) NOT NULL,
+  `phone_number_id` varchar(7) NOT NULL,
+  `access_level` ENUM('user','admin') NOT NULL ,
+  PRIMARY KEY (`teacher_ID`),
+  UNIQUE KEY `NID` (`NID`),
+  FOREIGN KEY (`phone_number_id`) 
+    REFERENCES `phone_numbers` (`number_ID`) on delete cascade on update cascade
+);
+
+CREATE TABLE IF NOT EXISTS `teacher_attendance` (
+  `teacher_ID` varchar(7) NOT NULL,
+  `date` date NOT NULL,
+  `attendance(yes/no)` ENUM('YES','NO') NOT NULL,
+  PRIMARY KEY (`teacher_ID`,`date`),
+  FOREIGN KEY (`teacher_ID`) 
+    REFERENCES `teacher` (`teacher_ID`) on delete cascade on update cascade
+);
+
+CREATE TABLE IF NOT EXISTS `salary` (
+  `teacher_ID` varchar(7) NOT NULL,
+  `working_hours` numeric(2,1) NOT NULL,
+  `percentage` numeric(2,2) NOT NULL,
+  `salary` numeric(8,2) NOT NULL,
+  `Month` ENUM('January','February','March','April','May','June','July','August','September','October','November','December') NOT NULL,
+  PRIMARY KEY (`teacher_ID`,`month`),
+  FOREIGN KEY (`teacher_ID`) 
+    REFERENCES `teacher` (`teacher_ID`) on delete cascade on update cascade
+);
+
+CREATE TABLE IF NOT EXISTS `course` (
+  `course_ID` varchar(3) NOT NULL,
+  `title` varchar(20) NOT NULL,
+  `time_slot_ID` varchar(3) NOT NULL,
+  `teacher_ID` varchar(7) NOT NULL,
+  PRIMARY KEY (`course_ID`),
+  FOREIGN KEY (`time_slot_ID`) 
+    REFERENCES `time_slots` (`slot_ID`) on delete cascade on update cascade,
+  FOREIGN KEY (`teacher_ID`) 
+    REFERENCES `teacher` (`teacher_ID`) on delete cascade on update cascade
+
+);
+
+CREATE TABLE IF NOT EXISTS `class_room` (
+  `class_ID` varchar(3) NOT NULL,
+  `building` varchar(20) NOT NULL,
+  `department` varchar(20) NOT NULL,
+  `course_ID` varchar(3) NOT NULL,
+  PRIMARY KEY (`class_ID`),
+  FOREIGN KEY (`course_ID`) 
+    REFERENCES `course` (`course_ID`) on delete cascade on update cascade
+);
+
+CREATE TABLE IF NOT EXISTS `performance_group` (
+  `group_ID` varchar(4) NOT NULL,
+  `performance_item_ID` varchar(3) NOT NULL,
+  `practice_session_ID` varchar(3) NOT NULL,
+  PRIMARY KEY (`group_ID`),
+  FOREIGN KEY (`practice_session_ID`) 
+    REFERENCES `practice_sessions` (`session_ID`) on delete cascade on update cascade,
+  FOREIGN KEY (`performance_item_ID`) 
+    REFERENCES `performance_items` (`item_ID`) on delete cascade on update cascade
+);
+
+
+CREATE TABLE IF NOT EXISTS `student` (
+  `ID` varchar(7) NOT NULL,
+  `name` varchar(40) NOT NULL,
+  `gender` ENUM('MALE','FEMALE') NOT NULL ,
+  `DOB` date NOT NULL,
+  `access_level` ENUM('user','admin') NOT NULL ,
+  `course_ID` varchar(3) NOT NULL,
+  `performance_group_ID` varchar(4),
+  `phone_number_id` varchar(7),
+  PRIMARY KEY (`ID`),
+  FOREIGN KEY (`course_ID`) 
+    REFERENCES `course` (`course_ID`) on delete cascade on update cascade,
+  FOREIGN KEY (`performance_group_ID`) 
+    REFERENCES `performance_group` (`group_ID`) on delete cascade on update cascade,
+  FOREIGN KEY (`phone_number_id`) 
+    REFERENCES `phone_numbers` (`number_ID`) on delete cascade on update cascade
+);
+
+CREATE TABLE IF NOT EXISTS `has_instruments` (
+  `Stdt_ID` varchar(7) NOT NULL,
+  `instrument_ID` varchar(4),
+  PRIMARY KEY (`Stdt_ID`),
+  FOREIGN KEY (`Stdt_ID`) 
+    REFERENCES `student` (`ID`) on delete cascade on update cascade,
+  FOREIGN KEY (`instrument_ID`) 
+    REFERENCES `instrument` (`instrument_ID`) on delete cascade on update cascade
+);
+
+CREATE TABLE IF NOT EXISTS `siblings` (
+  `Stdt_ID` varchar(7) NOT NULL,
+  `sibling_ID` varchar(7) NOT NULL,
+  PRIMARY KEY (`Stdt_ID`),
+  FOREIGN KEY (`Stdt_ID`) 
+    REFERENCES `student` (`ID`) on delete cascade on update cascade,
+  FOREIGN KEY (`sibling_ID`) 
+    REFERENCES `student` (`ID`) on delete cascade on update cascade
+);
+
+CREATE TABLE IF NOT EXISTS `parents` (
+  `NID` varchar(10) NOT NULL,
+  `name` varchar(40) NOT NULL,
+  `child_ID` varchar(7) NOT NULL,
+  `gender` ENUM('MALE','FEMALE') NOT NULL,
+  `phone_number_id` varchar(7) NOT NULL,
+  PRIMARY KEY (`NID`),
+  FOREIGN KEY (`child_ID`) 
+    REFERENCES `student` (`ID`),
+  FOREIGN KEY (`phone_number_id`) 
+    REFERENCES `phone_numbers` (`number_ID`) on delete cascade on update cascade
+
+);
+
+CREATE TABLE IF NOT EXISTS `payments` (
+  `Stdt_ID` varchar(7) NOT NULL,
+  `year` year(4) NOT NULL,
+  `payed date` date NOT NULL,
+  `amount` numeric(8,2) NOT NULL,
+  PRIMARY KEY (`Stdt_ID`),
+  FOREIGN KEY (`Stdt_ID`) 
+    REFERENCES `student` (`ID`) on delete cascade on update cascade
+);
+
+
+CREATE TABLE IF NOT EXISTS `student_attendance` (
+  `ID` varchar(7) NOT NULL,
+  `date` date NOT NULL,
+  `attendance(yes/no)` ENUM('YES','NO') NOT NULL,
+  PRIMARY KEY (`ID`,`date`),
+  FOREIGN KEY (`ID`) 
+    REFERENCES `student` (`ID`) on delete cascade on update cascade
+);
+
+CREATE TABLE IF NOT EXISTS `student_progress` (
+  `student_ID` varchar(7) NOT NULL,
+  `attendance` int(3) NOT NULL,
+  `health` text NOT NULL,
+  `performance` text NOT NULL,
+  `graph` text NOT NULL COMMENT 'type is text for now',
+  `year end report` text NOT NULL,
+  PRIMARY KEY (`student_ID`),
+  FOREIGN KEY (`student_ID`) 
+    REFERENCES `student` (`ID`) on delete cascade on update cascade
+);
+
+
+
+
