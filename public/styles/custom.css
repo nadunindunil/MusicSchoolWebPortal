@@ -280,6 +280,11 @@ body.nav-md .container.body .right_col {
     color: #E74C3C;
 }
 
+.textred {
+    background-color: #ffd1d1;
+    border: solid 1px red;
+}
+
 
 .dark {
     color: #34495E;
@@ -2521,6 +2526,11 @@ ul.parsley-errors-list {
     list-style: none;
     color: #E74C3C;
     padding-left: 0;
+}
+
+input:focus {
+
+    border-color: lightblue;
 }
 
 input.parsley-error,

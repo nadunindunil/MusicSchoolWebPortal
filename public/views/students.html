@@ -33,6 +33,7 @@
                                         </label>
                                         <div class="col-md-6 col-sm-6 col-xs-12">
                                             <input type="text" id="ID"  data-ng-model="sID" name="sID"
+                                                   ng-class="{textred: form.sID.$error.integer || form.sID.$error.minlength || (form.sID.$error.required && form.sID.$invalid && form.sID.$touched)}"
                                                    integer required ng-model-options="{ updateOn: 'blur' }" minlength="7" data-minlength="7" maxlength="7"
                                                    class="form-control col-md-7 col-xs-12">
 
@@ -47,7 +48,7 @@
                                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="fullname">Full Name <span class="required">*</span>
                                         </label>
                                         <div class="col-md-6 col-sm-6 col-xs-12">
-                                            <input type="text" data-ng-model="fullname" id="fullname" name="fullname" required="required" class="form-control col-md-7 col-xs-12">
+                                            <input ng-class="{textred: form.fullname.$touched && form.fullname.$invalid }" type="text" data-ng-model="fullname" id="fullname" name="fullname" required="required" class="form-control col-md-7 col-xs-12">
                                             <span style="color:red" ng-show="form.fullname.$touched && form.fullname.$invalid">
                                             <span ng-show="form.fullname.$error.required">*name is required.</span>
                                             </span>
