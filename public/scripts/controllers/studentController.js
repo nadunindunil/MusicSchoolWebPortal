@@ -92,7 +92,40 @@ angular.module('sbAdminApp')
 
         //STDreset();
 
-    }
+    };
+
+        $scope.addParent = function(){
+
+            var id = $scope.sID;
+            var gender = $scope.sgender;
+            var name = $scope.fullname;
+            var dob = $scope.dob;
+            var acclevel = $scope.accLevel;
+            var course = $scope.course;
+            var pergroup = $scope.perGroup;
+            var tel = $scope.telePhone;
+            var add = $scope.address;
+            var cid = $scope.cID;
+
+            if (!$scope.cousin && $scope.cID != null){
+                // cousin
+
+                $http.post('http://localhost:3000/insertCousin',{
+                    Stdt_ID:id,
+                    sibling_ID:cid
+
+
+                });
+
+
+            }
+            else if($scope.cousin){
+                // parent
+
+
+            }
+
+        }
 
 
 }]);
