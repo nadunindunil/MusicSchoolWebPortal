@@ -52,7 +52,7 @@ angular.module('sbAdminApp')
 
     $scope.nums = null;
 
-
+/////////////////////////////////////////////////////////////////////////////
 
     $scope.addStudent = function(){
 
@@ -63,7 +63,7 @@ angular.module('sbAdminApp')
         var acclevel = $scope.accLevel;
         var course = $scope.course;
         var pergroup = $scope.perGroup;
-        var tel = $scope.telePhone;
+        var tel = $scope.telephone;
         var add = $scope.address;
 
         console.log(id,gender,name,dob,pergroup,course );
@@ -93,7 +93,7 @@ angular.module('sbAdminApp')
         //STDreset();
 
     };
-
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
         $scope.addParent = function(){
 
             var id = $scope.sID;
@@ -103,13 +103,16 @@ angular.module('sbAdminApp')
             var acclevel = $scope.accLevel;
             var course = $scope.course;
             var pergroup = $scope.perGroup;
-            var tel = $scope.telePhone;
+            var tel = $scope.telephone;
             var add = $scope.address;
             var cid = $scope.cID;
             var parentNIC = $scope.pID;
             var parentName = $scope.pname;
             var parentGender = $scope.pgender;
             var parentTelephone = $scope.ptelephone;
+
+
+            console.log(id,gender,name,dob,pergroup,course,parentNIC,parentName,parentTelephone,parentGender );
 
             if (!$scope.cousin && $scope.cID != null){
                 // cousin
@@ -130,7 +133,7 @@ angular.module('sbAdminApp')
                     name: parentName,
                     child_ID: id,
                     pgender: parentGender,
-                    phone_number_ID:parentTelephone
+                    phone_number:parentTelephone
 
 
                 });

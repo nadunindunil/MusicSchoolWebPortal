@@ -285,16 +285,25 @@ app.post('/insertSibling', function (req, res) {
 });
 
 app.post('/insertParent', function (req, res) {
+	var post2 ={
+		number_ID: req.body.NID,
+		location: req.body.location,
+		phone_number: req.body.phone_number
 
+	}
+
+	var query = connection.query('INSERT INTO phone_numbers SET ?', post2, function(err, result) {
+		// Neat!
+	});
 
 
 
 	var post  = {
 		NID: req.body.NID,
 		name: req.body.name,
-		child_ID: req.body.id,
+		child_ID: req.body.child_ID,
 		gender: req.body.pgender,
-		phone_number_ID:req.body.phone_number_ID
+		phone_number_ID:req.body.NID
 	};
 
 	var query = connection.query('INSERT INTO parents SET ?', post, function(err, result) {

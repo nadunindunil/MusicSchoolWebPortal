@@ -24,7 +24,7 @@ CREATE TABLE IF NOT EXISTS `performance_items` (
 
 
 CREATE TABLE IF NOT EXISTS `phone_numbers` (
-  `number_ID` varchar(7) NOT NULL,
+  `number_ID` varchar(9) NOT NULL,
   `location` varchar(15),
   `phone_number` int(10) NOT NULL,
   KEY (`number_ID`)
@@ -139,7 +139,6 @@ CREATE TABLE IF NOT EXISTS `has_instruments` (
 CREATE TABLE IF NOT EXISTS `siblings` (
   `Stdt_ID` varchar(7) NOT NULL,
   `sibling_ID` varchar(7) NOT NULL,
-  PRIMARY KEY (`Stdt_ID`),
   FOREIGN KEY (`Stdt_ID`) 
     REFERENCES `student` (`ID`) on delete cascade on update cascade,
   FOREIGN KEY (`sibling_ID`) 
@@ -151,7 +150,7 @@ CREATE TABLE IF NOT EXISTS `parents` (
   `name` varchar(40) NOT NULL,
   `child_ID` varchar(7) NOT NULL,
   `gender` ENUM('MALE','FEMALE') NOT NULL,
-  `phone_number_id` varchar(7) NOT NULL,
+  `phone_number_id` varchar(9) NOT NULL,
   PRIMARY KEY (`NID`),
   FOREIGN KEY (`child_ID`) 
     REFERENCES `student` (`ID`),
