@@ -106,11 +106,15 @@ angular.module('sbAdminApp')
             var tel = $scope.telePhone;
             var add = $scope.address;
             var cid = $scope.cID;
+            var parentNIC = $scope.pID;
+            var parentName = $scope.pname;
+            var parentGender = $scope.pgender;
+            var parentTelephone = $scope.ptelephone;
 
             if (!$scope.cousin && $scope.cID != null){
                 // cousin
 
-                $http.post('http://localhost:3000/insertCousin',{
+                $http.post('http://localhost:3000/insertSibling',{
                     Stdt_ID:id,
                     sibling_ID:cid
 
@@ -121,7 +125,15 @@ angular.module('sbAdminApp')
             }
             else if($scope.cousin){
                 // parent
+                $http.post('http://localhost:3000/insertParent',{
+                    NID: parentNIC,
+                    name: parentName,
+                    child_ID: id,
+                    pgender: parentGender,
+                    phone_number_ID:parentTelephone
 
+
+                });
 
             }
 

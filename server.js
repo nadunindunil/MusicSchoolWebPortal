@@ -263,6 +263,47 @@ app.post('/insertCourse', function (req, res) {
 	res.end('done');
 
 });
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+app.post('/insertSibling', function (req, res) {
+
+
+
+
+	var post  = {
+		Stdt_ID: req.body.Stdt_ID,
+		sibling_ID: req.body.sibling_ID
+	};
+
+	var query = connection.query('INSERT INTO siblings SET ?', post, function(err, result) {
+		// Neat!
+	});
+	console.log(query.sql);
+	res.end('done');
+
+});
+
+app.post('/insertParent', function (req, res) {
+
+
+
+
+	var post  = {
+		NID: req.body.NID,
+		name: req.body.name,
+		child_ID: req.body.id,
+		gender: req.body.pgender,
+		phone_number_ID:req.body.phone_number_ID
+	};
+
+	var query = connection.query('INSERT INTO parents SET ?', post, function(err, result) {
+		// Neat!
+	});
+	console.log(query.sql);
+	res.end('done');
+
+});
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
