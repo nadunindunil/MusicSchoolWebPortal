@@ -326,6 +326,18 @@ body.nav-md .container.body .right_col {
     color: #fff;
 }
 
+.btn-green {
+    background: #1ABB9C !important;
+    border: 1px solid #1ABB9C !important;
+    color: #fff;
+}
+
+.btn-green:hover {
+    background: #1cc99e !important;
+    border: 1px solid #1cc99e !important;
+    color: #fff;
+}
+
 .bg-red {
     background: #E74C3C !important;
     border: 1px solid #E74C3C !important;
@@ -344,6 +356,17 @@ body.nav-md .container.body .right_col {
     color: #fff;
 }
 
+.btn-orange {
+    background: #ffa512 !important;
+    border: 1px solid #ffa512 !important;
+    color: #fff;
+}
+
+.btn-orange:hover {
+    background: #ffb530 !important;
+    border: 1px solid #ffb530 !important;
+    color: #fff;
+}
 .bg-purple {
     background: #9B59B6 !important;
     border: 1px solid #9B59B6 !important;
@@ -376,7 +399,7 @@ body {
     color: #73879C;
     background: #2A3F54;
     /*#ECF0F1; #FCFCFC*/
-    
+    /*font-family: 'Roboto', sans-serif;*/
     font-family: "Helvetica Neue", Roboto, Arial, "Droid Sans", sans-serif;
     font-size: 13px;
     font-weight: 400;
