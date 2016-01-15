@@ -6,14 +6,18 @@ angular.module('sbAdminApp')
     .controller('TeachersCtrl',['$scope','$http','$log', function($scope,$http,$log){
 
 
-    $http.get('http://localhost:3000/getTeachersCourseList')
-        .success(function(data){
-            $scope.Teachers = data;
-            console.log(data);
-        })
-        .error(function(err){
-            $log.error(err);
-        });
+    $scope.teachInit = function(){
+
+
+
+        $http.get('http://localhost:3000/getTeachersCourseList')
+            .success(function(data){
+                $scope.Teachers = data;
+                console.log(data);
+            })
+            .error(function(err){
+                $log.error(err);
+            });
 
         $http.get('http://localhost:3000/getCoursesList')
             .success(function(data){
@@ -24,6 +28,7 @@ angular.module('sbAdminApp')
                 $log.error(err);
             });
 
+    };
 
     $scope.addTeacher = function(){
 
@@ -51,7 +56,7 @@ angular.module('sbAdminApp')
 
         });
 
-        //STDreset();
-
+        
+        $scope.teachInit();
     }
 }]);
