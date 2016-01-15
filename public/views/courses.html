@@ -5,7 +5,7 @@
     </ol>
 
 </div>
-<div class="row ">
+<div class="row " ng-init="cInit()">
     <div class="col-lg-12">
         <h4> Courses Management</h4>
         <div class="under">
@@ -89,7 +89,7 @@
                                             <button data-dismiss="modal" onclick="resetForm1()" class="btn btn-default" >Close</button>
                                             <button class="btn btn-success" type="button"
                                                     data-ng-disabled="!sID || !fullname || !teacherID || !tsID"
-                                                    onclick="resetForm1()" data-ng-click=" addCourse();" data-dismiss="modal"> Add Student</button>
+                                                    onclick="resetForm1()" data-ng-click=" addCourse();" data-dismiss="modal"> Add Course</button>
                                         </div>
                                     </div>
 

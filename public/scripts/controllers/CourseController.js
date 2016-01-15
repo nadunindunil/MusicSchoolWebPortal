@@ -7,14 +7,16 @@ angular.module('sbAdminApp')
     .controller('CoursesCtrl',['$scope','$http','$log', function($scope,$http,$log){
 
 
-    $http.get('http://localhost:3000/getTimeSlotsTeachersCourseList')
-        .success(function(data){
-            $scope.Courses = data;
-            console.log(data);
-        })
-        .error(function(err){
-            $log.error(err);
-        });
+    $scope.cInit = function(){
+
+        $http.get('http://localhost:3000/getTimeSlotsTeachersCourseList')
+            .success(function(data){
+                $scope.Courses = data;
+                console.log(data);
+            })
+            .error(function(err){
+                $log.error(err);
+            });
 
 
 
@@ -38,6 +40,8 @@ angular.module('sbAdminApp')
                 $log.error(err);
             });
 
+    };
+
 
         $scope.addCourse = function(){
 
@@ -57,6 +61,8 @@ angular.module('sbAdminApp')
 
 
             });
+
+            $scope.cInit();
 
 
 
