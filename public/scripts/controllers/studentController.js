@@ -6,32 +6,40 @@ angular.module('sbAdminApp')
     .controller('StudentsCtrl',['$scope','$http','$rootScope','$log', function($scope,$http,$log,$rootScope){
 
     $rootScope.pageName = "Students";
-    $http.get('http://localhost:3000/getCoursesList')
-        .success(function(data){
-            $scope.Courses = data;
-            console.log(data);
-        })
-        .error(function(err){
-            $log.error(err);
-        });
+    $scope.stdInit = function(){
 
-    $http.get('http://localhost:3000/getPerfGrpsList')
-        .success(function(data){
-            $scope.Groups = data;
-            console.log(data);
-        })
-        .error(function(err){
-            $log.error(err);
-        });
+        console.log("inside the init");
 
-    $http.get('http://localhost:3000/getStudentsList')
-        .success(function(data){
-            $scope.Students = data;
-            console.log(data);
-        })
-        .error(function(err){
-            $log.error(err);
-        });
+        $http.get('http://localhost:3000/getCoursesList')
+            .success(function(data){
+                $scope.Courses = data;
+                console.log(data);
+            })
+            .error(function(err){
+                $log.error(err);
+            });
+
+        $http.get('http://localhost:3000/getPerfGrpsList')
+            .success(function(data){
+                $scope.Groups = data;
+                console.log(data);
+            })
+            .error(function(err){
+                $log.error(err);
+            });
+
+        $http.get('http://localhost:3000/getStudentsList')
+            .success(function(data){
+                $scope.Students = data;
+                console.log(data);
+            })
+            .error(function(err){
+                $log.error(err);
+            });
+
+
+    };
+
 
 
 
@@ -91,6 +99,7 @@ angular.module('sbAdminApp')
         });
 
         //STDreset();
+        $scope.stdInit();
 
     };
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
