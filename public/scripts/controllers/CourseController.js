@@ -9,6 +9,8 @@ angular.module('sbAdminApp')
 
     $scope.cInit = function(){
 
+        $scope.query = '';
+
         $http.get('http://localhost:3000/getTimeSlotsTeachersCourseList')
             .success(function(data){
                 $scope.Courses = data;

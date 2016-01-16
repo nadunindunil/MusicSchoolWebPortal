@@ -155,7 +155,7 @@
             <div class="x_title clearfix">
 
                 <div class="pull-left"> <h5>Registered Teachers ({{Teachers.length}})</h5></div>
-                <input class="form-control pull-right" data-ng-model="query" type="text" class="form-control empty" id="iconified" placeholder="&#xF002; Search.." style="width: 180px;height: 30px;font-family:Arial, FontAwesome">
+                <input class="form-control pull-right" data-ng-model="query" type="text" class="form-control empty" id="iconified" placeholder="&#xF002; Search.." style="width: 180px;height: 30px;font-family:Roboto, FontAwesome">
 
             </div>
             <div class="x_content">
@@ -174,7 +174,7 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <tr class="repeat-animation" data-ng-repeat="teacher in Teachers track by $index">
+                        <tr class="repeat-animation" data-ng-repeat="teacher in Teachers | filter:query">
                             <td>{{teacher.teacher_ID}}</td>
                             <td>{{teacher.name}}</td>
                             <td>{{teacher.gender}}</td>

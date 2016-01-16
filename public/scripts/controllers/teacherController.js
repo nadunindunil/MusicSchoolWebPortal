@@ -8,7 +8,7 @@ angular.module('sbAdminApp')
 
     $scope.teachInit = function(){
 
-
+        $scope.query = '';
 
         $http.get('http://localhost:3000/getTeachersCourseList')
             .success(function(data){

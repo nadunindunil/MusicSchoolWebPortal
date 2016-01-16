@@ -113,7 +113,7 @@
             <div class="x_title clearfix">
 
                 <div class="pull-left"> <h5>Courses ({{Courses.length}})</h5> </div>
-                <input class="form-control pull-right" data-ng-model="query" type="text" class="form-control empty" id="iconified" placeholder="&#xF002; Search.." style="width: 180px;height: 30px;font-family:Arial, FontAwesome">
+                <input class="form-control pull-right" data-ng-model="query" type="text" class="form-control empty" id="iconified" placeholder="&#xF002; Search.." style="width: 180px;height: 30px;font-family:Roboto, FontAwesome">
 
             </div>
             <div class="x_content">
@@ -123,13 +123,13 @@
                         <tr>
                             <th>ID</th>
                             <th>Title</th>
-                            <th>Time Slot (Date / Name)</th>
+                            <th>Time Slot (Date / Time)</th>
                             <th>Teacher Name</th>
                             <th>Action</th>
                         </tr>
                         </thead>
                         <tbody>
-                        <tr class="repeat-animation" data-ng-repeat="crse in Courses track by $index">
+                        <tr class="repeat-animation" data-ng-repeat="crse in Courses | filter:query">
                             <td>{{crse.course_ID}}</td>
                             <td>{{crse.title}}</td>
                             <td>{{crse.date}} / {{crse.time}}</td>
