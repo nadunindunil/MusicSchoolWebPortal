@@ -10,6 +10,8 @@ angular.module('sbAdminApp')
 
         console.log("inside the init");
 
+        $scope.query = '';
+
         $http.get('http://localhost:3000/getCoursesList')
             .success(function(data){
                 $scope.Courses = data;
