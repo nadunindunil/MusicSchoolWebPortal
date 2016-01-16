@@ -27,6 +27,7 @@ angular
       .state('dashboard', {
         url:'/dashboard',
         templateUrl: 'views/dashboard/main.html',
+        authenticate: true,
         resolve: {
             loadMyDirectives:function($ocLazyLoad){
                 return $ocLazyLoad.load(
@@ -79,6 +80,7 @@ angular
       .state('dashboard.home',{
         url:'/home',
         controller: 'MainCtrl',
+        authenticate: true,
         templateUrl:'views/dashboard/home.html',
         resolve: {
           loadMyFiles:function($ocLazyLoad) {
@@ -101,19 +103,23 @@ angular
     })
         .state('dashboard.studentProfile',{
             templateUrl:'views/students/studentProfile.html',
+            authenticate: true,
             url:'/studentProfile'
         })
         .state('dashboard.teacherProfile',{
             templateUrl:'views/teacher/teacherProfile.html',
+            authenticate: true,
             url:'/teacherProfile'
         })
         .state('dashboard.events',{
             templateUrl:'views/events/events.html',
+            authenticate: true,
             url:'/events'
         })
           .state('dashboard.courses',{
             templateUrl:'views/courses.html',
             url:'/courses',
+            authenticate: true,
             controller:'CoursesCtrl',
             resolve: {
                 loadMyFile:function($ocLazyLoad) {
@@ -133,6 +139,7 @@ angular
       .state('dashboard.students',{
         templateUrl:'views/students.html',
         url:'/students',
+        authenticate: true,
         controller:'StudentsCtrl',
         resolve: {
           loadMyFile:function($ocLazyLoad) {
