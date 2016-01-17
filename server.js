@@ -3,6 +3,7 @@ var express        = require('express');
 var app            = express();
 var bodyParser     = require('body-parser');
 var methodOverride = require('method-override');
+var bcrypt = require('bcrypt-nodejs');
 
 // configuration ===========================================
 	
@@ -241,6 +242,101 @@ app.post('/insertTeacher', function (req, res) {
 	res.end('done');
 
 });
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+app.post('/signup', function (req, res) {
+
+	var x;
+	console.log("inside sign up");
+	bcrypt.genSalt(5, function(err, salt) {
+		bcrypt.hash(req.body.password, salt, null, function(err, hash) {
+			console.log(hash);
+			x = hash;
+			update();
+		});
+	});
+
+
+	function update(){
+		console.log("inside update");
+		var post ={
+			IDs: req.body.ID,
+			name: req.body.name,
+			Admin: req.body.admin,
+			password: x
+
+		};
+
+		var query = connection.query('INSERT INTO users SET ?', post, function(err, result) {
+			// Neat!
+		});
+		console.log(query.sql);
+		res.end('done');
+	}
+
+});
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+
+app.post('/login', function (req, res) {
+	var y;
+	var candidatePassword = req.body.password;
+	var ID = req.body.ID;
+	var ans = {};
+
+	connection.query('SELECT password FROM users WHERE IDs= ?',[ID], function(err, rows, fields) {
+		if (err) throw err;
+		console.log('The solution is: ', rows);
+		console.log(candidatePassword);
+		//ans.json(rows);
+		console.log("pass from table" + rows[0].password );
+		y = rows[0].password;
+		update();
+		//res.json(user1);
+	});
+
+
+	function update(){
+		console.log(y);
+
+		bcrypt.compare(candidatePassword, y , function(err, isMatch) {
+			if (err) throw (err);
+			console.log(isMatch);
+
+			if(isMatch == true){
+				connection.query('SELECT IDs,name,Admin FROM users WHERE IDs=?',[ID], function (err, rows, fields){
+					res.json({
+						LogIn : 1,
+						name : rows[0].name,
+						IDs : rows[0].IDs,
+						Admin : rows[0].Admin
+					});
+
+
+				});
+			} else {   res.json({ LogIn : 0 }); }
+
+		});
+	}
+});
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+app.get('/checkUser/:id', function (req, res) {
+
+
+	var ID = req.params.id;
+
+	connection.query('SELECT * FROM users WHERE IDs= ?',[ID], function(err, rows, fields) {
+		if (err) throw err;
+		res.json(rows);
+		console.log('The solution is: ', rows);
+	});
+
+	//res.end('done');
+
+});
+
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 

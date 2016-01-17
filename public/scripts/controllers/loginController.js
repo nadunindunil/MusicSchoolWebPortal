@@ -17,9 +17,11 @@ angular.module('sbAdminApp')
                     if(response.success) {
                         LoginService.SetCredentials($scope.username, $scope.password);
                         $location.path('/dashboard/home');
+                        console.log("inside the if");
                     } else {
                         $scope.error = response.message;
                         $scope.dataLoading = false;
+                        console.log("inside the else");
                     }
                 });
             };
