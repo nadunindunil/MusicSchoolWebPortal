@@ -14,8 +14,9 @@ angular.module('sbAdminApp')
             $scope.login = function () {
                 $scope.dataLoading = true;
                 LoginService.Login($scope.username, $scope.password, function(response) {
-                    if(response.success) {
-                        LoginService.SetCredentials($scope.username, $scope.password);
+                    console.log("inside the login in ctrler" + response.name);
+                    if(response.LogIn == 1) {
+                        LoginService.SetCredentials(response.IDs , response.name, response.Admin , response);
                         $location.path('/dashboard/home');
                         console.log("inside the if");
                     } else {

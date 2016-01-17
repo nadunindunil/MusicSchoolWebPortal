@@ -249,10 +249,10 @@ angular
 
             /* Use this for real authentication
              ----------------------------------------------*/
-            $http.get('http://localhost:3000/checkUser/', + username)
+            $http.post('http://localhost:3000/login',{ID:username , password:password })
 
                 .success(function (response) {
-                    console.log("success in checkuser");
+                    console.log("success in" + response.name);
                     callback(response);
                 }).error(function(response){
                     response.message = 'Username or password is incorrect';
@@ -264,12 +264,13 @@ angular
 
         };
 
-        service.SetCredentials = function (username, password) {
-            var authdata = Base64.encode(username + ':' + password);
+        service.SetCredentials = function (id , username, acLevel , response) {
+            var authdata = Base64.encode(username + ':' + acLevel +':'+ id);
             $rootScope.loggedin = true;
             //localStorage.loggedin = true;
             var loggedIn = true;
             localStorage.setItem("loggedIn", JSON.stringify(loggedIn));
+            localStorage.setItem("userData", JSON.stringify(response));
 
             $rootScope.globals = {
                 currentUser: {
@@ -286,7 +287,9 @@ angular
             $rootScope.loggedin = false;
 
             var loggedIn = false;
+            var res = {};
             localStorage.setItem("loggedIn", JSON.stringify(loggedIn));
+            localStorage.setItem("userData", JSON.stringify(res));
             console.log("inside the clear " + JSON.parse(localStorage.loggedIn));
             //localStorage.loggedin = false;
             $rootScope.globals = {};

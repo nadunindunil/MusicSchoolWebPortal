@@ -286,12 +286,16 @@ app.post('/login', function (req, res) {
 
 	connection.query('SELECT password FROM users WHERE IDs= ?',[ID], function(err, rows, fields) {
 		if (err) throw err;
-		console.log('The solution is: ', rows);
-		console.log(candidatePassword);
-		//ans.json(rows);
-		console.log("pass from table" + rows[0].password );
-		y = rows[0].password;
-		update();
+		if  (rows.length > 0){
+
+			console.log('The solution is: ', rows);
+			console.log(candidatePassword);
+			//ans.json(rows);
+			console.log("pass from table" + rows[0].password );
+			y = rows[0].password;
+			update();
+		}
+		else {   res.json({ LogIn : 0 }); }
 		//res.json(user1);
 	});
 
