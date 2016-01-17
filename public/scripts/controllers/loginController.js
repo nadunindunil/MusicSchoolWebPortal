@@ -20,7 +20,7 @@ angular.module('sbAdminApp')
                         $location.path('/dashboard/home');
                         console.log("inside the if");
                     } else {
-                        $scope.error = response.message;
+                        $scope.error = 'Username or password is incorrect';
                         $scope.dataLoading = false;
                         console.log("inside the else");
                     }

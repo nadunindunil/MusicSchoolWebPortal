@@ -5,9 +5,10 @@
 angular.module('sbAdminApp')
     .controller('StudentsCtrl',['$scope','$http','$rootScope','$log', function($scope,$http,$log,$rootScope){
 
-    $rootScope.pageName = "Students";
-    $scope.stdInit = function(){
+    $rootScope.pageName = "STUDENTS MANAGEMENT";
 
+    $scope.stdInit = function(){
+        $rootScope.pageName = "STUDENTS MANAGEMENT";
         console.log("inside the init");
 
         $scope.query = '';

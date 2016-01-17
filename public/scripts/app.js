@@ -248,8 +248,7 @@ angular
             //}, 1000);
 
 
-            /* Use this for real authentication
-             ----------------------------------------------*/
+
             $http.post('http://localhost:3000/login',{ID:username , password:password })
 
                 .success(function (response) {

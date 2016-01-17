@@ -3,9 +3,10 @@
  */
 
 angular.module('sbAdminApp')
-    .controller('TeachersCtrl',['$scope','$http','$log', function($scope,$http,$log){
+    .controller('TeachersCtrl',['$scope','$rootScope','$http','$log', function($scope,$rootScope,$http,$log){
 
 
+    $rootScope.pageName = "TEACHERS MANAGEMENT";
     $scope.teachInit = function(){
 
         $scope.query = '';

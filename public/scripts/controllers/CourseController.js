@@ -4,9 +4,10 @@
 
 
 angular.module('sbAdminApp')
-    .controller('CoursesCtrl',['$scope','$http','$log', function($scope,$http,$log){
+    .controller('CoursesCtrl',['$scope','$rootScope','$http','$log', function($scope,$rootScope,$http,$log){
 
 
+    $rootScope.pageName = "COURSES";
     $scope.cInit = function(){
 
         $scope.query = '';
