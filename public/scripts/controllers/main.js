@@ -7,5 +7,13 @@
  * Controller of the sbAdminApp
  */
 angular.module('sbAdminApp')
-  .controller('MainCtrl', function($scope,$position) {
-  });
+  .controller('mainCtrl',['$scope','$position','LoginService', function($scope,$position,LoginService) {
+
+
+      $scope.logout = function(){
+
+        LoginService.ClearCredentials();
+
+
+      }
+  }]);

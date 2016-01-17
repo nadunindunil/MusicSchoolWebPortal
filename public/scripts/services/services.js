@@ -3,8 +3,10 @@
  */
 //extracted form http://jasonwatmore.com/post/2014/05/26/AngularJS-Basic-HTTP-Authentication-Example.aspx
 
+'use strict';
 
 angular.module('sbAdminApp')
+
 
 
 

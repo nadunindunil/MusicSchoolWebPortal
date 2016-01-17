@@ -6,18 +6,17 @@
 
 angular.module('sbAdminApp')
 
-    .controller('LoginController',
-    ['$scope', '$rootScope', '$location', 'AuthenticationService',
-        function ($scope, $rootScope, $location, AuthenticationService) {
+    .controller('loginCtrl',['$scope', '$rootScope', '$location', 'LoginService',
+        function ($scope, $rootScope, $location, LoginService) {
             // reset login status
-            AuthenticationService.ClearCredentials();
+            LoginService.ClearCredentials();
 
             $scope.login = function () {
                 $scope.dataLoading = true;
-                AuthenticationService.Login($scope.username, $scope.password, function(response) {
+                LoginService.Login($scope.username, $scope.password, function(response) {
                     if(response.success) {
-                        AuthenticationService.SetCredentials($scope.username, $scope.password);
-                        $location.path('/');
+                        LoginService.SetCredentials($scope.username, $scope.password);
+                        $location.path('/dashboard/home');
                     } else {
                         $scope.error = response.message;
                         $scope.dataLoading = false;

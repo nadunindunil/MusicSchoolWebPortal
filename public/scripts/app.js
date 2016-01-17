@@ -9,6 +9,7 @@
  */
 angular
   .module('sbAdminApp', [
+    'ngCookies',
     'oc.lazyLoad',
     'ui.router',
     'ui.bootstrap',
@@ -28,12 +29,14 @@ angular
         url:'/dashboard',
         templateUrl: 'views/dashboard/main.html',
         authenticate: true,
+        controller: 'mainCtrl',
         resolve: {
             loadMyDirectives:function($ocLazyLoad){
                 return $ocLazyLoad.load(
                 {
                     name:'sbAdminApp',
                     files:[
+                        'scripts/controllers/main.js',
                         'scripts/directives/sidebar/sidebar.js',
                         //'scripts/directives/sidebar/sidebar-search/sidebar-search.js',
                         'scripts/directives/header/header.js'
@@ -79,7 +82,6 @@ angular
     })
       .state('dashboard.home',{
         url:'/home',
-        controller: 'MainCtrl',
         authenticate: true,
         templateUrl:'views/dashboard/home.html',
         resolve: {
@@ -87,7 +89,7 @@ angular
             return $ocLazyLoad.load({
               name:'sbAdminApp',
               files:[
-              'scripts/controllers/main.js',
+
               'scripts/directives/timeline/timeline.js',
               'scripts/directives/notifications/notifications.js',
               'scripts/directives/chat/chat.js',
@@ -129,12 +131,29 @@ angular
                                'scripts/directives/validate.js',
                                'js/form.js']
                     })
+
                 }
             }
     })
       .state('login',{
         templateUrl:'views/pages/login.html',
-        url:'/login'
+        controller:'loginCtrl',
+        authenticate: false,
+        url:'/login',
+        resolve: {
+                loadMyFile:function($ocLazyLoad) {
+                    return $ocLazyLoad.load({
+                        name:'sbAdminApp',
+                        files:['scripts/controllers/loginController.js',
+                            'scripts/services/services.js']
+                    }),
+                    $ocLazyLoad.load(
+                        {
+                            name:'ngCookies',
+                            files:['public/libs/angular-cookies/angular-cookies.min.js']
+                        })
+                }
+            }
     })
       .state('dashboard.students',{
         templateUrl:'views/students.html',
@@ -204,57 +223,80 @@ angular
        url:'/grid'
    })
   }])
+
+
+    .factory('LoginService',['Base64', '$http', '$rootScope', '$timeout',function(Base64, $http, $rootScope, $timeout){
+
+        var service = {};
+        $rootScope.loggedin = false;
+
+
+        service.Login = function (username, password, callback) {
+
+            /* Dummy authentication for testing, uses $timeout to simulate api call
+             ----------------------------------------------*/
+            $timeout(function(){
+                var response = { success: username === 'test' && password === 'test' };
+                if(!response.success) {
+                    response.message = 'Username or password is incorrect';
+                }
+                callback(response);
+            }, 1000);
+
+
+            /* Use this for real authentication
+             ----------------------------------------------*/
+            //$http.post('/api/authenticate', { username: username, password: password })
+            //    .success(function (response) {
+            //        callback(response);
+            //    });
+
+
+
+        };
+
+        service.SetCredentials = function (username, password) {
+            var authdata = Base64.encode(username + ':' + password);
+            $rootScope.loggedin = true;
+
+            $rootScope.globals = {
+                currentUser: {
+                    username: username,
+                    authdata: authdata
+                }
+            };
+
+            $http.defaults.headers.common['Authorization'] = 'Basic ' + authdata; // jshint ignore:line
+            //$cookieStore.put('globals', $rootScope.globals);
+        };
+
+        service.ClearCredentials = function () {
+            $rootScope.loggedin = false;
+            $rootScope.globals = {};
+            //$cookieStore.remove('globals');
+            $http.defaults.headers.common.Authorization = 'Basic ';
+        };
+
+        return service;
+
+    }])
+
     .factory('AuthenticationService',
     [ '$http', '$rootScope', '$timeout',
         function ( $http, $rootScope, $timeout) {
             var service = {};
 
-            //service.Login = function (username, password, callback) {
-            //
-            //    /* Dummy authentication for testing, uses $timeout to simulate api call
-            //     ----------------------------------------------*/
-            //    $timeout(function(){
-            //        var response = { success: username === 'test' && password === 'test' };
-            //        if(!response.success) {
-            //            response.message = 'Username or password is incorrect';
-            //        }
-            //        callback(response);
-            //    }, 1000);
-            //
-            //
-            //    /* Use this for real authentication
-            //     ----------------------------------------------*/
-            //    //$http.post('/api/authenticate', { username: username, password: password })
-            //    //    .success(function (response) {
-            //    //        callback(response);
-            //    //    });
-            //
-            //};
+
 
             service.isLoggedIn = function(){
 
-                return true;
+                if ($rootScope.loggedin){
+                    return true;
+                }
+                return false;
             };
 
-            //service.SetCredentials = function (username, password) {
-            //    var authdata = Base64.encode(username + ':' + password);
-            //
-            //    $rootScope.globals = {
-            //        currentUser: {
-            //            username: username,
-            //            authdata: authdata
-            //        }
-            //    };
-            //
-            //    $http.defaults.headers.common['Authorization'] = 'Basic ' + authdata; // jshint ignore:line
-            //    $cookieStore.put('globals', $rootScope.globals);
-            //};
-            //
-            //service.ClearCredentials = function () {
-            //    $rootScope.globals = {};
-            //    $cookieStore.remove('globals');
-            //    $http.defaults.headers.common.Authorization = 'Basic ';
-            //};
+
 
             return service;
         }])
@@ -264,7 +306,8 @@ angular
         $rootScope.$on("$stateChangeStart",
             function(event, toState, toParams, fromState, fromParams) {
                 if (toState.authenticate && !AuthenticationService.isLoggedIn()) {
-                    $state.go("login");
+
+                    $state.go('login');
                     event.preventDefault();
                 }
             });
