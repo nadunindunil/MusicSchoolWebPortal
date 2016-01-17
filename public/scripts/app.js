@@ -228,7 +228,8 @@ angular
     .factory('LoginService',['Base64', '$http', '$rootScope', '$timeout',function(Base64, $http, $rootScope, $timeout){
 
         var service = {};
-        $rootScope.loggedin = false;
+        //$rootScope.loggedin = false;
+        $rootScope.userInfo = JSON.parse(localStorage.userData);
         //localStorage.loggedin = false;
         //var loggedIn = false;
         //localStorage.setItem("loggedIn", JSON.stringify(loggedIn));
@@ -266,7 +267,7 @@ angular
 
         service.SetCredentials = function (id , username, acLevel , response) {
             var authdata = Base64.encode(username + ':' + acLevel +':'+ id);
-            $rootScope.loggedin = true;
+            //$rootScope.loggedin = true;
             //localStorage.loggedin = true;
             var loggedIn = true;
             localStorage.setItem("loggedIn", JSON.stringify(loggedIn));
@@ -284,7 +285,7 @@ angular
         };
 
         service.ClearCredentials = function () {
-            $rootScope.loggedin = false;
+            //$rootScope.loggedin = false;
 
             var loggedIn = false;
             var res = {};
