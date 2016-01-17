@@ -230,8 +230,8 @@ angular
         var service = {};
         $rootScope.loggedin = false;
         //localStorage.loggedin = false;
-        var loggedIn = false;
-        localStorage.setItem("loggedIn", JSON.stringify(loggedIn));
+        //var loggedIn = false;
+        //localStorage.setItem("loggedIn", JSON.stringify(loggedIn));
 
 
         service.Login = function (username, password, callback) {

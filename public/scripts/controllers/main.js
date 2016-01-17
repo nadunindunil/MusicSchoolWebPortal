@@ -15,5 +15,10 @@ angular.module('sbAdminApp')
         LoginService.ClearCredentials();
 
 
-      }
+      };
+      var inst = localStorage.userData;
+      console.log(localStorage.userData);
+      console.log(inst.name);
+      $scope.userName = localStorage.userData.name;
+
   }]);
