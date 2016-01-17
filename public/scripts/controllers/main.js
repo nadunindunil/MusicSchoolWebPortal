@@ -11,7 +11,7 @@ angular.module('sbAdminApp')
 
 
       $scope.logout = function(){
-
+        console.log("inside main logout");
         LoginService.ClearCredentials();
 
 

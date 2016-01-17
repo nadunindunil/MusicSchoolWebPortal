@@ -23,4 +23,9 @@ angular.module('sbAdminApp')
                     }
                 });
             };
-        }]);
+
+            $scope.logout = function(){
+                LoginService.ClearCredentials();
+            };
+        }
+        ]);

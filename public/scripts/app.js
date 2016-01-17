@@ -22,7 +22,7 @@ angular
       events:true
     });
 
-    $urlRouterProvider.otherwise('/dashboard/home');
+    $urlRouterProvider.otherwise('/login');
 
     $stateProvider
       .state('dashboard', {
@@ -229,6 +229,9 @@ angular
 
         var service = {};
         $rootScope.loggedin = false;
+        //localStorage.loggedin = false;
+        var loggedIn = false;
+        localStorage.setItem("loggedIn", JSON.stringify(loggedIn));
 
 
         service.Login = function (username, password, callback) {
@@ -258,6 +261,9 @@ angular
         service.SetCredentials = function (username, password) {
             var authdata = Base64.encode(username + ':' + password);
             $rootScope.loggedin = true;
+            //localStorage.loggedin = true;
+            var loggedIn = true;
+            localStorage.setItem("loggedIn", JSON.stringify(loggedIn));
 
             $rootScope.globals = {
                 currentUser: {
@@ -272,6 +278,11 @@ angular
 
         service.ClearCredentials = function () {
             $rootScope.loggedin = false;
+
+            var loggedIn = false;
+            localStorage.setItem("loggedIn", JSON.stringify(loggedIn));
+            console.log("inside the clear " + JSON.parse(localStorage.loggedIn));
+            //localStorage.loggedin = false;
             $rootScope.globals = {};
             //$cookieStore.remove('globals');
             $http.defaults.headers.common.Authorization = 'Basic ';
@@ -289,8 +300,10 @@ angular
 
 
             service.isLoggedIn = function(){
-
-                if ($rootScope.loggedin){
+                console.log(localStorage.loggedIn);
+                console.log("inside the isloggedin " + JSON.parse(localStorage.loggedIn));
+                var login = JSON.parse(localStorage.loggedIn);
+                if (login){
                     return true;
                 }
                 return false;
@@ -304,13 +317,17 @@ angular
     .run(function($rootScope, $state, AuthenticationService){
 
         $rootScope.$on("$stateChangeStart",
-            function(event, toState, toParams, fromState, fromParams) {
-                if (toState.authenticate && !AuthenticationService.isLoggedIn()) {
 
+            function(event, toState, toParams, fromState, fromParams) {
+                console.log(toState.authenticate + ','+AuthenticationService.isLoggedIn());
+
+                if (toState.authenticate && !AuthenticationService.isLoggedIn()) {
+                    console.log(AuthenticationService.isLoggedIn());
                     $state.go('login');
                     event.preventDefault();
                 }
             });
+
     })
 
    ;
