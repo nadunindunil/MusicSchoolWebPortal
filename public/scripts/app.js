@@ -229,7 +229,15 @@ angular
 
         var service = {};
         //$rootScope.loggedin = false;
-        $rootScope.userInfo = JSON.parse(localStorage.userData);
+
+        if (localStorage.getItem("userData") === null) {
+            console.log("inside the null userdata");
+
+        }
+        else{
+            $rootScope.userInfo = JSON.parse(localStorage.userData);
+        }
+
         //localStorage.loggedin = false;
         //var loggedIn = false;
         //localStorage.setItem("loggedIn", JSON.stringify(loggedIn));
@@ -307,9 +315,14 @@ angular
             var service = {};
 
 
+            if (localStorage.getItem("loggedIn") === null) {
+                console.log("inside the null");
+                var loggedIn = false;
+                localStorage.setItem("loggedIn", JSON.stringify(loggedIn));
+            }
 
             service.isLoggedIn = function(){
-                console.log(localStorage.loggedIn);
+                console.log("1 st in isloggedin "+localStorage.loggedIn);
                 console.log("inside the isloggedin " + JSON.parse(localStorage.loggedIn));
                 var login = JSON.parse(localStorage.loggedIn);
                 if (login){

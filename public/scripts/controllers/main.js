@@ -8,7 +8,13 @@
  */
 angular.module('sbAdminApp')
   .controller('mainCtrl',['$scope','$rootScope','$position','LoginService', function($scope,$rootScope,$position,LoginService) {
-      $scope.pgName = $rootScope.pageName;
+
+      $scope.mainInit = function(){
+
+          $scope.pgName = $rootScope.pageName;
+
+
+      };
       console.log($rootScope.pageName);
 
       $scope.logout = function(){

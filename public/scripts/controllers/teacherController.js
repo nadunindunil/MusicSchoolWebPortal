@@ -6,9 +6,9 @@ angular.module('sbAdminApp')
     .controller('TeachersCtrl',['$scope','$rootScope','$http','$log', function($scope,$rootScope,$http,$log){
 
 
-    $rootScope.pageName = "TEACHERS MANAGEMENT";
-    $scope.teachInit = function(){
 
+    $scope.teachInit = function(){
+        //$rootScope.pageName = "TEACHERS MANAGEMENT";
         $scope.query = '';
 
         $http.get('http://localhost:3000/getTeachersCourseList')
