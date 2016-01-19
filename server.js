@@ -199,6 +199,21 @@ app.get('/getPerGroupsList', function(req, res){
 	connection.query('SELECT * FROM performance_group LEFT JOIN performance_items ON performance_group.performance_item_ID = performance_items.item_ID ' +
 		'LEFT JOIN time_slots ON time_slots.slot_ID = performance_group.practice_session_ID', function(err, rows, fields) {
 		if (err) throw err;
+
+		res.json(rows);
+		console.log('The solution is: ', rows);
+	});
+
+
+});
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+app.get('/findTelNum/:id', function(req, res){
+	//connection.connect();
+	var ID = req.params.id;
+	connection.query('SELECT * FROM phone_numbers WHERE number_ID= ?',[ID], function(err, rows, fields) {
+		if (err) throw err;
 		res.json(rows);
 		console.log('The solution is: ', rows);
 	});
@@ -210,10 +225,10 @@ app.get('/getPerGroupsList', function(req, res){
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-app.get('/findTelNum/:id', function(req, res){
+app.get('/findGroupMembers/:id', function(req, res){
 	//connection.connect();
 	var ID = req.params.id;
-	connection.query('SELECT * FROM phone_numbers WHERE number_ID= ?',[ID], function(err, rows, fields) {
+	connection.query('SELECT * FROM student WHERE performance_group_ID = ?',[ID], function(err, rows, fields) {
 		if (err) throw err;
 		res.json(rows);
 		console.log('The solution is: ', rows);

@@ -1,0 +1,213 @@
+<div class="row">
+    <ol class="breadcrumb" style="background-color: transparent">
+        <li><a href="#/home"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active"><i class="fa fa-group"></i> Performance Items</li>
+    </ol>
+
+</div>
+<div class="row " ng-init="piInit()">
+    <div class="col-lg-12">
+        <h4> Performance Items Management</h4>
+        <div class="under">
+
+            <!-- Button trigger modal -->
+            <button class="btn btn-success btn-green btn-xs" data-toggle="modal" data-target="#myModal"><i class="fa fa-plus"></i>
+                New Group
+            </button>
+
+            <!-- Modal -->
+            <div class="modal fade bs-example-modal-lg" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                            <h4 class="modal-title" id="myModalLabel"> Add new Performance Item </h4>
+                        </div>
+                        <div class="modal-body">
+                            <form id="form1" name="form" role="form" class="form-horizontal form-label-left" novalidate>
+                                <div class="row" style="padding-left: 15px;">
+
+
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="ID">Performance Item ID <span class="required">*</span>
+                                        </label>
+                                        <div class="col-md-6 col-sm-6 col-xs-12">
+                                            <input type="text" id="ID"  data-ng-model="periID" name="periID"
+                                                   integer required ng-model-options="{ updateOn: 'blur' }" minlength="3" data-minlength="3" maxlength="3"
+                                                   class="form-control col-md-7 col-xs-12">
+
+                                            <span style="color:red" ng-show="form.periID.$error.integer"> *should be a number</span>
+                                            <span style="color:red" ng-show="form.periID.$touched && form.periID.$invalid">
+                                            <span ng-show="form.periID.$error.required">*ID is required.</span>
+                                            </span>
+                                            <span style="color:red" ng-show="form.periID.$error.minlength"> *should be 3 digits</span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="itemname">Iten Name <span class="required">*</span>
+                                        </label>
+                                        <div class="col-md-6 col-sm-6 col-xs-12">
+                                            <input ng-class="{textred: form.itemname.$touched && form.itemname.$invalid }" type="text" data-ng-model="itemname" id="itemname" name="itemname" required="required" class="form-control col-md-7 col-xs-12">
+                                            <span style="color:red" ng-show="form.itemname.$touched && form.itemname.$invalid">
+                                            <span ng-show="form.itemname.$error.required">*item name is required.</span>
+                                            </span>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="itemdesc">Item Description <span class="required">*</span>
+                                        </label>
+                                        <div class="col-md-6 col-sm-6 col-xs-12">
+                                            <input ng-class="{textred: form.itemdesc.$touched && form.itemdesc.$invalid }" type="text" data-ng-model="itemdesc" id="itemdesc" name="itemdesc" required="required" class="form-control col-md-7 col-xs-12">
+                                            <span style="color:red" ng-show="form.itemdesc.$touched && form.itemdesc.$invalid">
+                                            <span ng-show="form.itemdesc.$error.required">*description is required.</span>
+                                            </span>
+                                        </div>
+                                    </div>
+
+                                    <div class="ln_solid"></div>
+
+                                    <div class="form-group">
+                                        <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+
+                                            <button data-dismiss="modal" onclick="resetForm1()" class="btn btn-default" >Close</button>
+                                            <button class="btn btn-success btn-green" type="button"
+                                                    data-ng-disabled="!periID || !itemname || !itemdesc "
+                                                    onclick="resetForm1()" data-ng-click=" addperGroup();" data-dismiss="modal"> Add Group</button>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <!-- /.modal-content -->
+                </div>
+                <!-- /.modal-dialog -->
+            </div>
+        </div>
+
+        <div class="x_panel">
+            <div class="x_title clearfix">
+
+                <div class="pull-left"> <h5>Performance Groups ({{perGroupsList.length}})</h5></div>
+                <input class="form-control pull-right" data-ng-model="query" type="text" class="form-control empty" id="iconified" placeholder="&#xF002; Search.." style="width: 180px;height: 30px;font-family:Roboto, FontAwesome">
+
+            </div>
+            <div class="x_content">
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Item Name</th>
+                            <th>Item Description</th>
+                            <th>Practice times</th>
+
+
+                            <th>Action</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr class="repeat-animation" data-ng-repeat="perGroup in perGroupsList | filter:query">
+                            <td>{{perGroup.group_ID}}</td>
+                            <td>{{perGroup.item_name}}</td>
+                            <td>{{perGroup.description}}</td>
+                            <td>{{perGroup.day}} / {{perGroup.time}}</td>
+
+                            <td><div class="btn-group">
+                                <a href="#/members/{{member.NIC}}" class="btn btn-info btn-xs"  style="color: #ffffff" role="button"><i class="fa fa-user"></i> Profile</a>
+
+                                <!-- Button trigger modal -->
+                                <button type="button" class="btn btn-warning btn-orange btn-xs" ng-click="setNIC(member.NIC);" data-toggle="modal" data-target="#myModal2">
+                                    Payment
+                                </button>
+                                <!-- Modal -->
+                                <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel2" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                                <h4 class="modal-title" id="myModalLabel2"> Payment Window</h4>
+                                            </div>
+                                            <div class="modal-body">
+
+                                                <div class="row" style="padding-left: 15px;">
+                                                    <div class="col-lg-9 col-lg-offset-1 form">
+
+                                                        <div class="row from-group" style="padding-bottom: 5px">
+                                                            <label class="pull-left" style="padding-left: 1cm">NIC:</label>
+
+                                                            <input class="form-control pull-right"
+                                                                   style="width: 300px; height: 35px" data-ng-model="NatIdentity" type="number" placeholder="NIC" readonly>
+                                                        </div>
+
+                                                        <div class="row" style="padding-bottom: 5px">
+                                                            <label class="pull-left" style="padding-left: 1cm"> Amount: </label>
+
+                                                            <div class="from-group input-group" style="padding-left: 1.7cm">
+                                                                <span class="input-group-addon">Rs.</span>
+                                                                <input class="form-control"
+                                                                       style=" height: 35px" data-ng-model="Bal" type="number" placeholder="payment">
+                                                                <span class="input-group-addon">.00 </span>
+
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="row from-group" style="padding-bottom: 5px">
+                                                            <label class="pull-left" style="padding-left: 1cm">Due Date:</label>
+
+
+                                                            <input class="form-control pull-right"
+                                                                   style="width: 300px; height: 35px" data-ng-model="DuDate" type="date">
+
+                                                        </div>
+
+                                                        <div class="row from-group" style="padding-bottom: 5px">
+                                                            <label class="pull-left" style="padding-left: 1cm">Date:</label>
+
+
+                                                            <input class="form-control pull-right"
+                                                                   style="width: 300px; height: 35px" data-ng-model="toDate" type="date">
+
+                                                        </div>
+
+                                                        <div class="row from-group" style="padding-bottom: 5px">
+                                                            <label class="pull-left" style="padding-left: 1cm">Officer:</label>
+
+                                                            <input class="form-control pull-right"
+                                                                   style="width: 300px; height: 35px" data-ng-model="OffName" type="text" placeholder="Officer Name">
+                                                        </div>
+
+
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">Close</button>
+                                                <button type="button" ng-click="trans(NatIdentity,Bal,DuDate,toDate,OffName);" class="btn btn-primary btn-sm" > Done</button>
+                                            </div>
+                                        </div>
+                                        <!-- /.modal-content -->
+                                    </div>
+                                    <!-- /.modal-dialog -->
+                                </div>
+                                <!-- /.modal -->
+                                <button type="button" ng-click="deleteMember(member.NIC);" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i></button>
+                            </div>
+                            </td>
+                        </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+
+        </div>
+
+
+    </div>
+    <!-- /.col-lg-12 -->
+</div>

@@ -66,6 +66,20 @@ angular.module('sbAdminApp')
         };
 
 
+        $scope.getMembers = function(group){
+            $http.get('http://localhost:3000/findGroupMembers/'+ group )
+                .success(function(data){
+                    $scope.StudentsList = data;
+                    console.log(data);
+                })
+                .error(function(err){
+                    $log.error(err);
+                });
+
+
+        }
+
+
 
     }]);
 
