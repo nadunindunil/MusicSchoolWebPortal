@@ -44,7 +44,7 @@
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="itemname">Iten Name <span class="required">*</span>
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="itemname">Item Name <span class="required">*</span>
                                         </label>
                                         <div class="col-md-6 col-sm-6 col-xs-12">
                                             <input ng-class="{textred: form.itemname.$touched && form.itemname.$invalid }" type="text" data-ng-model="itemname" id="itemname" name="itemname" required="required" class="form-control col-md-7 col-xs-12">
@@ -73,7 +73,7 @@
                                             <button data-dismiss="modal" onclick="resetForm1()" class="btn btn-default" >Close</button>
                                             <button class="btn btn-success btn-green" type="button"
                                                     data-ng-disabled="!periID || !itemname || !itemdesc "
-                                                    onclick="resetForm1()" data-ng-click=" addperGroup();" data-dismiss="modal"> Add Group</button>
+                                                    onclick="resetForm1()" data-ng-click=" addItem();" data-dismiss="modal"> Add Item</button>
                                         </div>
                                     </div>
 
@@ -90,7 +90,7 @@
         <div class="x_panel">
             <div class="x_title clearfix">
 
-                <div class="pull-left"> <h5>Performance Groups ({{perGroupsList.length}})</h5></div>
+                <div class="pull-left"> <h5>Performance Groups ({{perItemsList.length}})</h5></div>
                 <input class="form-control pull-right" data-ng-model="query" type="text" class="form-control empty" id="iconified" placeholder="&#xF002; Search.." style="width: 180px;height: 30px;font-family:Roboto, FontAwesome">
 
             </div>
@@ -102,18 +102,18 @@
                             <th>ID</th>
                             <th>Item Name</th>
                             <th>Item Description</th>
-                            <th>Practice times</th>
+
 
 
                             <th>Action</th>
                         </tr>
                         </thead>
                         <tbody>
-                        <tr class="repeat-animation" data-ng-repeat="perGroup in perGroupsList | filter:query">
-                            <td>{{perGroup.group_ID}}</td>
-                            <td>{{perGroup.item_name}}</td>
-                            <td>{{perGroup.description}}</td>
-                            <td>{{perGroup.day}} / {{perGroup.time}}</td>
+                        <tr class="repeat-animation" data-ng-repeat="perItem in perItemsList | filter:query">
+                            <td>{{perItem.item_ID}}</td>
+                            <td>{{perItem.item_name}}</td>
+                            <td>{{perItem.description}}</td>
+
 
                             <td><div class="btn-group">
                                 <a href="#/members/{{member.NIC}}" class="btn btn-info btn-xs"  style="color: #ffffff" role="button"><i class="fa fa-user"></i> Profile</a>

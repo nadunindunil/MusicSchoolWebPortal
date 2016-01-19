@@ -284,6 +284,28 @@ app.post('/insertPerfGroup', function (req, res) {
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+app.post('/insertPerfItem', function (req, res) {
+	console.log("inside insert performance items list");
+
+
+
+	var post  = {
+		item_ID: req.body.item_ID,
+		item_name: req.body.item_name,
+		description:req.body.description
+	};
+
+	var query = connection.query('INSERT INTO performance_items SET ?', post, function(err, result) {
+		// Neat!
+	});
+	console.log(query.sql);
+	res.end('done');
+
+});
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 app.post('/addStudentForInstrument', function (req, res) {
 
 
