@@ -60,7 +60,7 @@ angular.module('sbAdminApp')
                 course_ID: id,
                 title: title,
                 time_slot_ID: tslot,
-                teacher_ID: teacher
+                teacherID: teacher
 
 
             });

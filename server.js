@@ -66,7 +66,7 @@ app.get('/getTeachersList', function(req, res){
 app.get('/getTeachersCourseList', function(req, res){
 	//connection.connect();
 
-	connection.query('SELECT * FROM teacher LEFT JOIN course ON teacher.teacher_ID=course.teacher_ID', function(err, rows, fields) {
+	connection.query('SELECT * FROM teacher LEFT JOIN course ON teacher.teacher_ID=course.teacherID', function(err, rows, fields) {
 		if (err) throw err;
 		res.json(rows);
 		console.log('The solution is: ', rows);
@@ -82,7 +82,7 @@ app.get('/getTeachersCourseList', function(req, res){
 app.get('/getTimeSlotsTeachersCourseList', function(req, res){
 	//connection.connect();
 
-	connection.query('SELECT * FROM time_slots INNER JOIN course ON time_slots.slot_ID=course.time_slot_ID INNER JOIN teacher ON teacher.teacher_ID=course.teacher_ID', function(err, rows, fields) {
+	connection.query('SELECT * FROM time_slots INNER JOIN course ON time_slots.slot_ID=course.time_slot_ID INNER JOIN teacher ON teacher.teacher_ID=course.teacherID', function(err, rows, fields) {
 		if (err) throw err;
 		res.json(rows);
 		console.log('The solution is: ', rows);
@@ -465,7 +465,7 @@ app.post('/insertCourse', function (req, res) {
 
 
 	var post  = {
-		teacher_ID: req.body.teacher_ID,
+		teacherID: req.body.teacherID,
 		title: req.body.title,
 		time_slot_ID: req.body.time_slot_ID,
 		course_ID: req.body.course_ID

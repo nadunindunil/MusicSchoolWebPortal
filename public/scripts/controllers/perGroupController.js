@@ -65,7 +65,7 @@ angular.module('sbAdminApp')
 
         };
 
-        
+
 
     }]);
 

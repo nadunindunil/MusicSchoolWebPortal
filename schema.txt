@@ -77,7 +77,7 @@ CREATE TABLE IF NOT EXISTS `course` (
   `course_ID` varchar(3) NOT NULL,
   `title` varchar(40) NOT NULL,
   `time_slot_ID` varchar(3) NOT NULL,
-  `teacher_ID` varchar(7) NOT NULL,
+  `teacherID` varchar(7) NOT NULL,
   PRIMARY KEY (`course_ID`),
   FOREIGN KEY (`time_slot_ID`) 
     REFERENCES `time_slots` (`slot_ID`) on delete cascade on update cascade,
