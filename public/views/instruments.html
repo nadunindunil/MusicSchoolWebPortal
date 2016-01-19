@@ -108,7 +108,7 @@
                                 <!--<a href="#/members/{{member.NIC}}" class="btn btn-info btn-xs"  style="color: #ffffff" role="button"><i class="fa fa-user"></i> Profile</a>-->
 
                                 <!-- Button trigger modal -->
-                                <button type="button" class="btn btn-success btn-green btn-xs" data-toggle="modal" data-target="#myModal2">
+                                <button type="button" class="btn btn-success btn-green btn-xs" ng-click="setIdentity(instrument.instrument_ID)" data-toggle="modal" data-target="#myModal2">
                                     Allocate Student
                                 </button>
                                 <!-- Modal -->
@@ -125,32 +125,21 @@
 
 
                                                         <div class="form-group">
-                                                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="stdID">ID <span class="required">*</span>
+                                                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="stdntID">Student ID <span class="required">*</span>
                                                             </label>
                                                             <div class="col-md-6 col-sm-6 col-xs-12">
-                                                                <input type="text" id="stdID"  data-ng-model="stdID" name="stdID"
-                                                                       integer required ng-model-options="{ updateOn: 'blur' }" minlength="7" data-minlength="7" maxlength="7"
+                                                                <input type="text" id="stdntID"  data-ng-model="stdntID" name="stdntID"
+                                                                       integer required minlength="7" data-minlength="7" maxlength="7"
                                                                        class="form-control col-md-7 col-xs-12">
 
-                                                                <span style="color:red" ng-show="form2.stdID.$error.integer"> *should be a number</span>
-                                                                <span style="color:red" ng-show="form2.stdID.$touched && form2.stdID.$invalid">
-                                                                <span ng-show="form2.stdID.$error.required">*ID is required.</span>
-                                                                </span>
-                                                                <span style="color:red" ng-show="form2.insID.$error.minlength"> *should be 7 digits</span>
+                                                                <span style="color:red" ng-show="form2.stdntID.$error.integer"> *should be a number</span>
+
+                                                                <span ng-show="form2.stdntID.$error.required">*ID is required.</span>
+
+                                                                <span style="color:red" ng-show="form2.stdntID.$error.minlength"> *should be 7 digits</span>
                                                             </div>
                                                         </div>
-                                                        <div class="form-group">
-                                                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="instname">Instrument Name <span class="required">*</span>
-                                                            </label>
-                                                            <div class="col-md-6 col-sm-6 col-xs-12">
-                                                                <input integer type="text" data-ng-model="instname" minlength="4" data-minlength="4" maxlength="4" id="instname" name="instname" required class="form-control col-md-7 col-xs-12">
-                                                                <span style="color:red" ng-show="form2.instname.$error.integer"> *should be a number</span>
-                                                                <span style="color:red" ng-show="form2.instname.$touched && form2.instname.$invalid">
-                                                                <span ng-show="form2.instname.$error.required">*name is required.</span>
-                                                                </span>
-                                                                <span style="color:red" ng-show="form2.instname.$error.minlength"> *should be 4 digits</span>
-                                                            </div>
-                                                        </div>
+
 
 
                                                         <div class="ln_solid"></div>
@@ -160,8 +149,8 @@
 
                                                                 <button data-dismiss="modal" onclick="resetForm1()" class="btn btn-default" >Close</button>
                                                                 <button class="btn btn-success btn-green" type="button"
-                                                                        data-ng-disabled="!instname || !stdID "
-                                                                        onclick="resetForm1()" data-ng-click=" allocateStudent();" data-dismiss="modal"> Add Instrument</button>
+                                                                        data-ng-disabled=" !stdntID "
+                                                                        onclick="resetForm1()" data-ng-click=" allocateStudent(stdntID,Identity);" data-dismiss="modal"> Allocate</button>
                                                             </div>
                                                         </div>
 

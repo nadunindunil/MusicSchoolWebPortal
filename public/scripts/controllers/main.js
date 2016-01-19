@@ -15,7 +15,7 @@ angular.module('sbAdminApp')
 
 
       };
-      console.log($rootScope.pageName);
+      //console.log($rootScope.pageName);
 
       $scope.logout = function(){
         console.log("inside main logout");
