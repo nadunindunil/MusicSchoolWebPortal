@@ -156,6 +156,23 @@ app.get('/getTimeSlotList', function(req, res){
 
 });
 
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+app.get('/getInstrumentsList', function(req, res){
+	//connection.connect();
+
+	connection.query('SELECT * FROM instrument', function(err, rows, fields) {
+		if (err) throw err;
+		res.json(rows);
+		console.log('The solution is: ', rows);
+	});
+
+	//connection.end();
+
+
+});
+
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 app.get('/findTelNum/:id', function(req, res){
@@ -169,6 +186,26 @@ app.get('/findTelNum/:id', function(req, res){
 
 	//connection.end();
 
+
+});
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+app.post('/insertInstrument', function (req, res) {
+	console.log("inside insert instrument");
+
+
+
+	var post  = {
+		instrument_ID: req.body.instrument_ID,
+		name: req.body.name
+	};
+
+	var query = connection.query('INSERT INTO instrument SET ?', post, function(err, result) {
+		// Neat!
+	});
+	console.log(query.sql);
+	res.end('done');
 
 });
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
