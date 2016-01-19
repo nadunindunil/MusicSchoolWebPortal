@@ -59,6 +59,8 @@ angular.module('sbAdminApp')
 
             });
 
+
+
             $scope.pgInit();
 
 

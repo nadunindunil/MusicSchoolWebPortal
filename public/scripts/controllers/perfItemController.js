@@ -31,7 +31,7 @@ angular.module('sbAdminApp')
         };
 
 
-        $scope.addperGroup = function(){
+        $scope.addperItem = function(){
 
             var id = $scope.periID;
             var itemName = $scope.itemname;

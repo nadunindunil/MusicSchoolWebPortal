@@ -230,6 +230,22 @@ angular
                 }
             }
     })
+      .state('dashboard.performanceItems',{
+            templateUrl:'views/performanceItems.html',
+            url:'/performanceItems',
+            controller:'PerItemCtrl',
+            authenticate: true,
+            resolve: {
+                loadMyFile:function($ocLazyLoad) {
+                    return $ocLazyLoad.load({
+                        name:'sbAdminApp',
+                        files:['scripts/controllers/perfItemController.js',
+                            'scripts/directives/validate.js',
+                            'js/form.js']
+                    })
+                }
+            }
+        })
       .state('dashboard.notifications',{
         templateUrl:'views/ui-elements/notifications.html',
         url:'/notifications'
