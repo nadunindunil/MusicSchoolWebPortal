@@ -208,6 +208,27 @@ app.post('/insertInstrument', function (req, res) {
 	res.end('done');
 
 });
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+app.post('/addStudentForInstrument', function (req, res) {
+
+
+
+
+	var post  = {
+		Std_ID: req.body.Std_ID,
+		instr_ID: req.body.instr_ID
+	};
+
+	var query = connection.query('INSERT INTO has_instruments SET ?', post, function(err, result) {
+		// Neat!
+	});
+	console.log(query.sql);
+	res.end('done');
+
+});
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 app.post('/insertStudent', function (req, res) {

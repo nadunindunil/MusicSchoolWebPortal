@@ -12,7 +12,7 @@
 
             <!-- Button trigger modal -->
             <button class="btn btn-success btn-green btn-xs" data-toggle="modal" data-target="#myModal"><i class="fa fa-plus"></i>
-                New Instruments
+                New Instrument
             </button>
 
             <!-- Modal -->
@@ -32,7 +32,7 @@
                                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="ID">ID <span class="required">*</span>
                                         </label>
                                         <div class="col-md-6 col-sm-6 col-xs-12">
-                                            <input type="text" id="ID"  data-ng-model="insID" name="insID"
+                                            <input type="text" id="insID"  data-ng-model="insID" name="insID"
                                                    integer required ng-model-options="{ updateOn: 'blur' }" minlength="4" data-minlength="4" maxlength="4"
                                                    class="form-control col-md-7 col-xs-12">
 
@@ -44,12 +44,12 @@
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="fullname">Instrument Name <span class="required">*</span>
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="insname">Instrument Name <span class="required">*</span>
                                         </label>
                                         <div class="col-md-6 col-sm-6 col-xs-12">
-                                            <input type="text" data-ng-model="insname" id="fullname" name="fullname" required class="form-control col-md-7 col-xs-12">
-                                            <span style="color:red" ng-show="form.fullname.$touched && form.fullname.$invalid">
-                                            <span ng-show="form.fullname.$error.required">*name is required.</span>
+                                            <input type="text" data-ng-model="insname" id="insname" name="insname" required class="form-control col-md-7 col-xs-12">
+                                            <span style="color:red" ng-show="form.insname.$touched && form.insname.$invalid">
+                                            <span ng-show="form.insname.$error.required">*name is required.</span>
                                             </span>
                                         </div>
                                     </div>

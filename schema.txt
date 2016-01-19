@@ -127,8 +127,8 @@ CREATE TABLE IF NOT EXISTS `student` (
 );
 
 CREATE TABLE IF NOT EXISTS `has_instruments` (
-  `Stdt_ID` varchar(7) NOT NULL,
-  `instrument_ID` varchar(4),
+  `Std_ID` varchar(7) NOT NULL,
+  `instr_ID` varchar(4),
   PRIMARY KEY (`Stdt_ID`),
   FOREIGN KEY (`Stdt_ID`) 
     REFERENCES `student` (`ID`) on delete cascade on update cascade,
