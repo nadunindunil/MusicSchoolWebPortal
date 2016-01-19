@@ -5,7 +5,7 @@
     </ol>
 
 </div>
-<div class="row " ng-init="teachInit()">
+<div class="row " ng-init="instInit()">
     <div class="col-lg-12">
         <h4> Instruments Management</h4>
         <div class="under">
@@ -32,102 +32,28 @@
                                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="ID">ID <span class="required">*</span>
                                         </label>
                                         <div class="col-md-6 col-sm-6 col-xs-12">
-                                            <input type="text" id="ID"  data-ng-model="tID" name="tID"
+                                            <input type="text" id="ID"  data-ng-model="insID" name="insID"
                                                    integer required ng-model-options="{ updateOn: 'blur' }" minlength="7" data-minlength="7" maxlength="7"
                                                    class="form-control col-md-7 col-xs-12">
 
-                                            <span style="color:red" ng-show="form.tID.$error.integer"> *should be a number</span>
-                                            <span style="color:red" ng-show="form.tID.$touched && form.tID.$invalid">
-                                            <span ng-show="form.tID.$error.required">*ID is required.</span>
+                                            <span style="color:red" ng-show="form.insID.$error.integer"> *should be a number</span>
+                                            <span style="color:red" ng-show="form.insID.$touched && form.insID.$invalid">
+                                            <span ng-show="form.insID.$error.required">*ID is required.</span>
                                             </span>
-                                            <span style="color:red" ng-show="form.tID.$error.minlength"> *should be 7 digits</span>
+                                            <span style="color:red" ng-show="form.insID.$error.minlength"> *should be 7 digits</span>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="fullname">Full Name <span class="required">*</span>
                                         </label>
                                         <div class="col-md-6 col-sm-6 col-xs-12">
-                                            <input type="text" data-ng-model="name" id="fullname" name="fullname" required class="form-control col-md-7 col-xs-12">
+                                            <input type="text" data-ng-model="insname" id="fullname" name="fullname" required class="form-control col-md-7 col-xs-12">
                                             <span style="color:red" ng-show="form.fullname.$touched && form.fullname.$invalid">
                                             <span ng-show="form.fullname.$error.required">*name is required.</span>
                                             </span>
                                         </div>
                                     </div>
-                                    <div class="form-group">
-                                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Gender <span class="required">*</span></label>
-                                        <div class="col-md-6 col-sm-6 col-xs-12">
-                                            <select class="form-control" data-ng-model="tgender" name="sgender" required>
-                                                <option>MALE</option>
-                                                <option>FEMALE</option>
 
-                                            </select>
-                                            <span style="color:red" ng-show="form.sgender.$touched && form.sgender.$invalid">
-                                            <span ng-show="form.sgender.$error.required">*gender is required.</span>
-                                            </span>
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Access Level <span class="required">*</span></label>
-                                        <div class="col-md-6 col-sm-6 col-xs-12">
-                                            <select class="form-control" data-ng-model="accLevel" name="accLevel" required>
-                                                <option>Admin</option>
-                                                <option>User</option>
-
-                                            </select>
-                                            <span style="color:red" ng-show="form.accLevel.$touched && form.accLevel.$invalid">
-                                            <span ng-show="form.accLevel.$error.required">*Access level is required.</span>
-                                            </span>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="nic">NIC <span class="required">*</span></label>
-                                        <div class="col-md-6 col-sm-6 col-xs-12">
-                                            <input ng-model-options="{ updateOn: 'blur' }" integer type="text" class="form-control" minlength="9" data-minlength="9" maxlength="9"
-                                                   id="nic" data-ng-model="nic" name="nic" required>
-                                            <span class="form-control-feedback right" aria-hidden="true">V</span>
-                                            <span style="color:red" ng-show="form.nic.$error.integer"> *should be a number</span>
-                                            <span style="color:red" ng-show="form.nic.$touched && form.nic.$invalid">
-                                            <span ng-show="form.nic.$error.required">*NIC is required.</span>
-                                            </span>
-                                            <span style="color:red" ng-show="form.nic.$error.minlength"> *should be 10 digits</span>
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="birthday">Date Of Birth <span class="required">*</span>
-                                        </label>
-                                        <div class="col-md-6 col-sm-6 col-xs-12">
-                                            <input id="birthday" data-ng-model="dob" name="dob" type="date" class="date-picker form-control col-md-7 col-xs-12" required type="text">
-                                            <span style="color:red" ng-show="form.dob.$touched && form.dob.$invalid">
-                                            <span ng-show="form.dob.$error.required">*Date of Birth is required.</span>
-                                            </span>
-                                        </div>
-                                    </div>
-
-
-                                    <div class="form-group">
-                                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Telephone <span class="required">*</span></label>
-                                        <div class="col-md-6 col-sm-6 col-xs-12">
-                                            <input ng-model-options="{ updateOn: 'blur' }" integer required class="form-control" name="telePhone"
-                                                   data-ng-model="telephone" type="text"
-                                                   placeholder="Telephone" minlength="10" data-minlength="10" maxlength="10">
-                                            <span style="color:red" ng-show="form.telePhone.$error.integer"> *should be a number</span>
-                                            <span style="color:red" ng-show="form.telePhone.$touched && form.telePhone.$invalid">
-                                            <span ng-show="form.telePhone.$error.required">*telephone is required.</span>
-                                            </span>
-                                            <span style="color:red" ng-show="form.telePhone.$error.minlength"> *should be 10 digits</span>
-                                        </div>
-
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Address </label>
-                                        <div class="col-md-6 col-sm-6 col-xs-12">
-                                            <input class="form-control pull-right"
-                                                   data-ng-model="address" type="text" placeholder="Address">
-                                        </div>
-                                    </div>
 
                                     <div class="ln_solid"></div>
 
@@ -136,8 +62,8 @@
 
                                             <button data-dismiss="modal" onclick="resetForm1()" class="btn btn-default" >Close</button>
                                             <button class="btn btn-success btn-green" type="button"
-                                                    data-ng-disabled="!tID || !name || !nic "
-                                                    onclick="resetForm1()" data-ng-click=" addTeacher();" data-dismiss="modal"> Add Teacher</button>
+                                                    data-ng-disabled="!insID || !insname "
+                                                    onclick="resetForm1()" data-ng-click=" addInstrument();" data-dismiss="modal"> Add Instrument</button>
                                         </div>
                                     </div>
 
@@ -154,7 +80,7 @@
         <div class="x_panel">
             <div class="x_title clearfix">
 
-                <div class="pull-left"> <h5>Registered Teachers ({{Teachers.length}})</h5></div>
+                <div class="pull-left"> <h5>Registered Instruments ({{Instruments.length}})</h5></div>
                 <input class="form-control pull-right" data-ng-model="query" type="text" class="form-control empty" id="iconified" placeholder="&#xF002; Search.." style="width: 180px;height: 30px;font-family:Roboto, FontAwesome">
 
             </div>
@@ -163,24 +89,20 @@
                     <table class="table table-hover">
                         <thead>
                         <tr>
-                            <th>ID</th>
-                            <th>Name</th>
-                            <th>Gender</th>
-                            <th>DOB</th>
-                            <th>NIC</th>
-                            <th>Course</th>
+                            <th>Instrument ID</th>
+                            <th>Instrument Name</th>
+                            <th>User ID</th>
+
                             <!--<th>phone numbers</th>-->
                             <th>Action</th>
                         </tr>
                         </thead>
                         <tbody>
-                        <tr class="repeat-animation" data-ng-repeat="teacher in Teachers | filter:query">
-                            <td>{{teacher.teacher_ID}}</td>
-                            <td>{{teacher.name}}</td>
-                            <td>{{teacher.gender}}</td>
-                            <td>{{teacher.DOB }}</td>
-                            <td>{{teacher.NID }}V</td>
-                            <td>{{teacher.title}}</td>
+                        <tr class="repeat-animation" data-ng-repeat="instrument in Instruments | filter:query">
+                            <td>{{instrument.teacher_ID}}</td>
+                            <td>{{instrument.name}}</td>
+                            <td>{{instrument.gender}}</td>
+
                             <!--<td>{{teacher.phone_number_id}}</td>-->
                             <td><div class="btn-group">
                                 <a href="#/members/{{member.NIC}}" class="btn btn-info btn-xs"  style="color: #ffffff" role="button"><i class="fa fa-user"></i> Profile</a>

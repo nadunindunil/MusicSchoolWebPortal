@@ -198,9 +198,21 @@ angular
                 }
             }
     })
-      .state('dashboard.panels-wells',{
-          templateUrl:'views/ui-elements/panels-wells.html',
-          url:'/panels-wells'
+      .state('dashboard.instruments',{
+          templateUrl:'views/instruments.html',
+          url:'/instruments',
+          controller:'InstrumentCtrl',
+            authenticate: true,
+            resolve: {
+                loadMyFile:function($ocLazyLoad) {
+                    return $ocLazyLoad.load({
+                        name:'sbAdminApp',
+                        files:['scripts/controllers/instrumentController.js',
+                            'scripts/directives/validate.js',
+                            'js/form.js']
+                    })
+                }
+            }
       })
       .state('dashboard.buttons',{
         templateUrl:'views/ui-elements/buttons.html',
