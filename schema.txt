@@ -75,7 +75,7 @@ CREATE TABLE IF NOT EXISTS `salary` (
 
 CREATE TABLE IF NOT EXISTS `course` (
   `course_ID` varchar(3) NOT NULL,
-  `title` varchar(20) NOT NULL,
+  `title` varchar(40) NOT NULL,
   `time_slot_ID` varchar(3) NOT NULL,
   `teacher_ID` varchar(7) NOT NULL,
   PRIMARY KEY (`course_ID`),

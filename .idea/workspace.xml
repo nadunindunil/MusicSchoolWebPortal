@@ -85,32 +85,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="header.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/scripts/directives/header/header.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-2.56">
-              <caret line="4" column="59" selection-start-line="4" selection-start-column="59" selection-end-line="4" selection-end-column="59" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="loginController.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/scripts/controllers/loginController.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="22" column="74" selection-start-line="22" selection-start-column="74" selection-end-line="22" selection-end-column="74" />
-              <folding>
-                <element signature="e#0#41#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="app.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="app.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/scripts/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.23674911">
+            <state vertical-scroll-proportion="-130.75862">
               <caret line="237" column="68" selection-start-line="237" selection-start-column="68" selection-end-line="237" selection-end-column="68" />
               <folding />
             </state>
@@ -120,8 +98,28 @@
       <file leaf-file-name="teachers.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/views/teachers.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-6.8">
-              <caret line="137" column="84" selection-start-line="137" selection-start-column="84" selection-end-line="137" selection-end-column="84" />
+            <state vertical-scroll-proportion="-8.72">
+              <caret line="140" column="46" selection-start-line="140" selection-start-column="46" selection-end-line="140" selection-end-column="46" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="instruments.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/public/views/instruments.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-0.028070176">
+              <caret line="23" column="89" selection-start-line="23" selection-start-column="89" selection-end-line="23" selection-end-column="89" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="schema.txt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/schema.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="77" column="20" selection-start-line="77" selection-start-column="20" selection-end-line="77" selection-end-column="20" />
               <folding />
             </state>
           </provider>
@@ -132,8 +130,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Html5" />
         <option value="JavaScript File" />
+        <option value="Html5" />
       </list>
     </option>
   </component>
@@ -170,7 +168,6 @@
         <option value="$PROJECT_DIR$/public/less/custom.css" />
         <option value="$PROJECT_DIR$/public/scripts/controllers/courseController.js" />
         <option value="$PROJECT_DIR$/public/scripts/services/services.js" />
-        <option value="$PROJECT_DIR$/schema.txt" />
         <option value="$PROJECT_DIR$/server.js" />
         <option value="$PROJECT_DIR$/public/scripts/directives/sidebar/sidebar.html" />
         <option value="$PROJECT_DIR$/public/scripts/controllers/loginController.js" />
@@ -186,6 +183,8 @@
         <option value="$PROJECT_DIR$/public/views/teachers.html" />
         <option value="$PROJECT_DIR$/public/views/students.html" />
         <option value="$PROJECT_DIR$/public/views/courses.html" />
+        <option value="$PROJECT_DIR$/public/views/instruments.html" />
+        <option value="$PROJECT_DIR$/schema.txt" />
       </list>
     </option>
   </component>
@@ -274,28 +273,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Music School Web Portal" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Music School Web Portal" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="pages" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -537,13 +514,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/bower.json">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -811,14 +781,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/schema.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-12.740741">
-          <caret line="197" column="17" selection-start-line="197" selection-start-column="17" selection-end-line="197" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/scripts/services/services.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -929,14 +891,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/views/teachers.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.8">
-          <caret line="137" column="84" selection-start-line="137" selection-start-column="84" selection-end-line="137" selection-end-column="84" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/views/students.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-3.851852">
@@ -955,8 +909,32 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/scripts/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.23674911">
+        <state vertical-scroll-proportion="-130.75862">
           <caret line="237" column="68" selection-start-line="237" selection-start-column="68" selection-end-line="237" selection-end-column="68" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/views/teachers.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-8.72">
+          <caret line="140" column="46" selection-start-line="140" selection-start-column="46" selection-end-line="140" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/schema.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="77" column="20" selection-start-line="77" selection-start-column="20" selection-end-line="77" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/views/instruments.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.028070176">
+          <caret line="23" column="89" selection-start-line="23" selection-start-column="89" selection-end-line="23" selection-end-column="89" />
           <folding />
         </state>
       </provider>
