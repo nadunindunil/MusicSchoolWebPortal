@@ -105,77 +105,68 @@
 
                             <!--<td>{{teacher.phone_number_id}}</td>-->
                             <td><div class="btn-group">
-                                <a href="#/members/{{member.NIC}}" class="btn btn-info btn-xs"  style="color: #ffffff" role="button"><i class="fa fa-user"></i> Profile</a>
+                                <!--<a href="#/members/{{member.NIC}}" class="btn btn-info btn-xs"  style="color: #ffffff" role="button"><i class="fa fa-user"></i> Profile</a>-->
 
                                 <!-- Button trigger modal -->
-                                <button type="button" class="btn btn-warning btn-orange btn-xs" ng-click="setNIC(member.NIC);" data-toggle="modal" data-target="#myModal2">
-                                    Payment
+                                <button type="button" class="btn btn-success btn-green btn-xs" data-toggle="modal" data-target="#myModal2">
+                                    Allocate Student
                                 </button>
                                 <!-- Modal -->
                                 <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel2" aria-hidden="true">
-                                    <div class="modal-dialog">
+                                    <div class="modal-dialog modal-lg">
                                         <div class="modal-content">
                                             <div class="modal-header">
                                                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                                                <h4 class="modal-title" id="myModalLabel2"> Payment Window</h4>
+                                                <h4 class="modal-title" id="myModalLabel2"> Add new Instrument</h4>
                                             </div>
                                             <div class="modal-body">
+                                                <form id="form2" name="form2" role="form" class="form-horizontal form-label-left" novalidate>
+                                                    <div class="row" style="padding-left: 15px;">
 
-                                                <div class="row" style="padding-left: 15px;">
-                                                    <div class="col-lg-9 col-lg-offset-1 form">
 
-                                                        <div class="row from-group" style="padding-bottom: 5px">
-                                                            <label class="pull-left" style="padding-left: 1cm">NIC:</label>
+                                                        <div class="form-group">
+                                                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="stdID">ID <span class="required">*</span>
+                                                            </label>
+                                                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                                                <input type="text" id="stdID"  data-ng-model="stdID" name="stdID"
+                                                                       integer required ng-model-options="{ updateOn: 'blur' }" minlength="7" data-minlength="7" maxlength="7"
+                                                                       class="form-control col-md-7 col-xs-12">
 
-                                                            <input class="form-control pull-right"
-                                                                   style="width: 300px; height: 35px" data-ng-model="NatIdentity" type="number" placeholder="NIC" readonly>
+                                                                <span style="color:red" ng-show="form2.stdID.$error.integer"> *should be a number</span>
+                                                                <span style="color:red" ng-show="form2.stdID.$touched && form2.stdID.$invalid">
+                                                                <span ng-show="form2.stdID.$error.required">*ID is required.</span>
+                                                                </span>
+                                                                <span style="color:red" ng-show="form2.insID.$error.minlength"> *should be 7 digits</span>
+                                                            </div>
                                                         </div>
-
-                                                        <div class="row" style="padding-bottom: 5px">
-                                                            <label class="pull-left" style="padding-left: 1cm"> Amount: </label>
-
-                                                            <div class="from-group input-group" style="padding-left: 1.7cm">
-                                                                <span class="input-group-addon">Rs.</span>
-                                                                <input class="form-control"
-                                                                       style=" height: 35px" data-ng-model="Bal" type="number" placeholder="payment">
-                                                                <span class="input-group-addon">.00 </span>
-
+                                                        <div class="form-group">
+                                                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="instname">Instrument Name <span class="required">*</span>
+                                                            </label>
+                                                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                                                <input integer type="text" data-ng-model="instname" minlength="4" data-minlength="4" maxlength="4" id="instname" name="instname" required class="form-control col-md-7 col-xs-12">
+                                                                <span style="color:red" ng-show="form2.instname.$error.integer"> *should be a number</span>
+                                                                <span style="color:red" ng-show="form2.instname.$touched && form2.instname.$invalid">
+                                                                <span ng-show="form2.instname.$error.required">*name is required.</span>
+                                                                </span>
+                                                                <span style="color:red" ng-show="form2.instname.$error.minlength"> *should be 4 digits</span>
                                                             </div>
                                                         </div>
 
-                                                        <div class="row from-group" style="padding-bottom: 5px">
-                                                            <label class="pull-left" style="padding-left: 1cm">Due Date:</label>
 
+                                                        <div class="ln_solid"></div>
 
-                                                            <input class="form-control pull-right"
-                                                                   style="width: 300px; height: 35px" data-ng-model="DuDate" type="date">
+                                                        <div class="form-group">
+                                                            <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
 
+                                                                <button data-dismiss="modal" onclick="resetForm1()" class="btn btn-default" >Close</button>
+                                                                <button class="btn btn-success btn-green" type="button"
+                                                                        data-ng-disabled="!instname || !stdID "
+                                                                        onclick="resetForm1()" data-ng-click=" allocateStudent();" data-dismiss="modal"> Add Instrument</button>
+                                                            </div>
                                                         </div>
-
-                                                        <div class="row from-group" style="padding-bottom: 5px">
-                                                            <label class="pull-left" style="padding-left: 1cm">Date:</label>
-
-
-                                                            <input class="form-control pull-right"
-                                                                   style="width: 300px; height: 35px" data-ng-model="toDate" type="date">
-
-                                                        </div>
-
-                                                        <div class="row from-group" style="padding-bottom: 5px">
-                                                            <label class="pull-left" style="padding-left: 1cm">Officer:</label>
-
-                                                            <input class="form-control pull-right"
-                                                                   style="width: 300px; height: 35px" data-ng-model="OffName" type="text" placeholder="Officer Name">
-                                                        </div>
-
 
                                                     </div>
-                                                </div>
-
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">Close</button>
-                                                <button type="button" ng-click="trans(NatIdentity,Bal,DuDate,toDate,OffName);" class="btn btn-primary btn-sm" > Done</button>
+                                                </form>
                                             </div>
                                         </div>
                                         <!-- /.modal-content -->
