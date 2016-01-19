@@ -102,7 +102,7 @@ CREATE TABLE IF NOT EXISTS `performance_group` (
   `practice_session_ID` varchar(3) NOT NULL,
   PRIMARY KEY (`group_ID`),
   FOREIGN KEY (`practice_session_ID`) 
-    REFERENCES `practice_sessions` (`session_ID`) on delete cascade on update cascade,
+    REFERENCES `time_slots` (`slot_ID`) on delete cascade on update cascade,
   FOREIGN KEY (`performance_item_ID`) 
     REFERENCES `performance_items` (`item_ID`) on delete cascade on update cascade
 );

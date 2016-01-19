@@ -156,6 +156,23 @@ app.get('/getTimeSlotList', function(req, res){
 
 });
 
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+app.get('/getPerfItems', function(req, res){
+	//connection.connect();
+
+	connection.query('SELECT * FROM performance_items', function(err, rows, fields) {
+		if (err) throw err;
+		res.json(rows);
+		console.log('The solution is: ', rows);
+	});
+
+	//connection.end();
+
+
+});
+
+
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -180,8 +197,7 @@ app.get('/getPerGroupsList', function(req, res){
 	//connection.connect();
 
 	connection.query('SELECT * FROM performance_group LEFT JOIN performance_items ON performance_group.performance_item_ID = performance_items.item_ID ' +
-		'LEFT JOIN practice_sessions ON practice_sessions.session_ID = performance_group.practice_session_ID LEFT JOIN time_slots' +
-		' ON time_slots.slot_ID = practice_sessions.time_slot_ID ', function(err, rows, fields) {
+		'LEFT JOIN time_slots ON time_slots.slot_ID = performance_group.practice_session_ID', function(err, rows, fields) {
 		if (err) throw err;
 		res.json(rows);
 		console.log('The solution is: ', rows);
@@ -221,6 +237,28 @@ app.post('/insertInstrument', function (req, res) {
 	};
 
 	var query = connection.query('INSERT INTO instrument SET ?', post, function(err, result) {
+		// Neat!
+	});
+	console.log(query.sql);
+	res.end('done');
+
+});
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+app.post('/insertPerfGroup', function (req, res) {
+	console.log("inside insert performance groups list");
+
+
+
+	var post  = {
+		group_ID: req.body.group_ID,
+		performance_item_ID: req.body.performance_item_ID,
+		practice_session_ID:req.body.practice_session_ID
+	};
+
+	var query = connection.query('INSERT INTO performance_group SET ?', post, function(err, result) {
 		// Neat!
 	});
 	console.log(query.sql);

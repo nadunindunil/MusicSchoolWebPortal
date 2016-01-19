@@ -14,13 +14,30 @@ angular.module('sbAdminApp')
 
             $http.get('http://localhost:3000/getPerGroupsList')
                 .success(function(data){
-                    $scope.perGroups = data;
+                    $scope.perGroupsList = data;
                     console.log(data);
                 })
                 .error(function(err){
                     $log.error(err);
                 });
 
+            $http.get('http://localhost:3000/getPerfItems')
+                .success(function(data){
+                    $scope.ItemsList = data;
+                    console.log(data);
+                })
+                .error(function(err){
+                    $log.error(err);
+                });
+
+            $http.get('http://localhost:3000/getTimeSlotList')
+                .success(function(data){
+                    $scope.Sessions = data;
+                    console.log(data);
+                })
+                .error(function(err){
+                    $log.error(err);
+                });
 
 
         };
@@ -42,17 +59,13 @@ angular.module('sbAdminApp')
 
             });
 
-            $scope.instInit();
+            $scope.pgInit();
 
 
 
         };
 
-        $scope.setIdentity =function(val){
-
-            $scope.Identity= val;
-
-        };
+        
 
     }]);
 

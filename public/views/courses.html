@@ -71,7 +71,7 @@
                                         <label class="control-label col-md-3 col-sm-3 col-xs-12">Time Slot <span class="required">*</span></label>
                                         <div class="col-md-6 col-sm-6 col-xs-12">
                                             <select  class="form-control" data-ng-model="tsID" name="tsID" required>
-                                                <option data-ng-repeat="ts in TimeSlots" value="{{ts.slot_ID}}"> {{ts.date}} / {{ts.time}}</option>
+                                                <option data-ng-repeat="ts in TimeSlots" value="{{ts.slot_ID}}"> {{ts.day}} / {{ts.time}}</option>
                                                 <!--<option> dummycourse2</option>-->
 
                                             </select>
@@ -132,7 +132,7 @@
                         <tr class="repeat-animation" data-ng-repeat="crse in Courses | filter:query">
                             <td>{{crse.course_ID}}</td>
                             <td>{{crse.title}}</td>
-                            <td>{{crse.date}} / {{crse.time}}</td>
+                            <td>{{crse.day}} / {{crse.time}}</td>
                             <td>{{crse.name }}</td>
 
 
