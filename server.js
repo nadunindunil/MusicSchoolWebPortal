@@ -162,7 +162,7 @@ app.get('/getTimeSlotList', function(req, res){
 app.get('/getInstrumentsList', function(req, res){
 	//connection.connect();
 
-	connection.query('SELECT * FROM instrument', function(err, rows, fields) {
+	connection.query('SELECT * FROM instrument LEFT JOIN has_instruments ON instrument.instrument_ID = has_instruments.instr_ID ', function(err, rows, fields) {
 		if (err) throw err;
 		res.json(rows);
 		console.log('The solution is: ', rows);

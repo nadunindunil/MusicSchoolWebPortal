@@ -60,21 +60,15 @@ angular.module('sbAdminApp')
             var Std = stdntID;
             var instr_ID = instID;
             console.log(instID);
-
-
             console.log(Std,instr_ID);
 
             $http.post('http://localhost:3000/addStudentForInstrument',{
                 Std_ID: Std,
                 instr_ID: instr_ID
 
-
-
             });
 
             $scope.instInit();
-
-
 
         }
     }]);
