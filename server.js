@@ -173,6 +173,25 @@ app.get('/getInstrumentsList', function(req, res){
 
 });
 
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+app.get('/getPerGroupsList', function(req, res){
+	//connection.connect();
+
+	connection.query('SELECT * FROM performance_group LEFT JOIN performance_items ON performance_group.performance_item_ID = performance_items.item_ID ' +
+		'LEFT JOIN practice_sessions ON practice_sessions.session_ID = performance_group.practice_session_ID LEFT JOIN time_slots' +
+		' ON time_slots.slot_ID = practice_sessions.time_slot_ID ', function(err, rows, fields) {
+		if (err) throw err;
+		res.json(rows);
+		console.log('The solution is: ', rows);
+	});
+
+	//connection.end();
+
+
+});
+
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 app.get('/findTelNum/:id', function(req, res){

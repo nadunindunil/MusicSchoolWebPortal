@@ -214,9 +214,21 @@ angular
                 }
             }
       })
-      .state('dashboard.buttons',{
-        templateUrl:'views/ui-elements/buttons.html',
-        url:'/buttons'
+      .state('dashboard.performanceGroups',{
+        templateUrl:'views/perGroups.html',
+        url:'/performanceGroups',
+        controller:'PerGroupCtrl',
+        authenticate: true,
+        resolve: {
+                loadMyFile:function($ocLazyLoad) {
+                    return $ocLazyLoad.load({
+                        name:'sbAdminApp',
+                        files:['scripts/controllers/perGroupController.js',
+                            'scripts/directives/validate.js',
+                            'js/form.js']
+                    })
+                }
+            }
     })
       .state('dashboard.notifications',{
         templateUrl:'views/ui-elements/notifications.html',

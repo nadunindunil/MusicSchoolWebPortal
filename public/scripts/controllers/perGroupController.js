@@ -35,11 +35,10 @@ angular.module('sbAdminApp')
 
             console.log(id,name);
 
-            $http.post('http://localhost:3000/insertInstrument',{
-                instrument_ID: id,
-                name: name
-
-
+            $http.post('http://localhost:3000/insertPerfGroup',{
+                group_ID: id,
+                performance_item_ID: item,
+                practice_session_ID:session
 
             });
 
@@ -55,22 +54,6 @@ angular.module('sbAdminApp')
 
         };
 
-        $scope.allocateStudent = function(stdntID,instID){
-
-            var Std = stdntID;
-            var instr_ID = instID;
-            console.log(instID);
-            console.log(Std,instr_ID);
-
-            $http.post('http://localhost:3000/addStudentForInstrument',{
-                Std_ID: Std,
-                instr_ID: instr_ID
-
-            });
-
-            $scope.instInit();
-
-        }
     }]);
 
 
