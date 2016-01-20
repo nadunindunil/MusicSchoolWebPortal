@@ -26,7 +26,22 @@ angular.module('sbAdminApp')
 
         $scope.thisDate = d.getDate();  // current date
 
+    $scope.setAttendance = function(){
 
+        var teacherIden = $scope.thisTID;
+        var year = $scope.thisYear;
+        var month = $scope.thisMonth;
+        var date = $scope.thisDate;
+
+        $http.post('http://localhost:3000/insertAttendance',{
+            teacID:teacherIden,
+            year:year,
+            month:month,
+            date:date
+
+        });
+
+    };
     $scope.settID = function(id){
 
         $scope.thisTID = id;
@@ -36,7 +51,7 @@ angular.module('sbAdminApp')
         //$rootScope.pageName = "TEACHERS MANAGEMENT";
         $scope.query = '';
 
-        $http.get('http://localhost:3000/getTeachersCourseList')
+        $http.get('http://localhost:3000/getTeachersCourseAttList')
             .success(function(data){
                 $scope.Teachers = data;
                 console.log(data);
@@ -53,6 +68,9 @@ angular.module('sbAdminApp')
             .error(function(err){
                 $log.error(err);
             });
+
+
+
 
     };
 

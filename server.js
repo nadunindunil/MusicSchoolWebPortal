@@ -172,6 +172,51 @@ app.get('/getPerfItems', function(req, res){
 
 });
 
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+app.get('/getTeachersCourseAttList', function(req, res){
+	//connection.connect();
+	var d = new Date();
+	var month = new Array();
+	month[0] = "January";
+	month[1] = "February";
+	month[2] = "March";
+	month[3] = "April";
+	month[4] = "May";
+	month[5] = "June";
+	month[6] = "July";
+	month[7] = "August";
+	month[8] = "September";
+	month[9] = "October";
+	month[10] = "November";
+	month[11] = "December";
+
+	var thisMonth = month[d.getMonth()];  //this month
+
+	var thisYear = d.getFullYear(); // this year
+
+	connection.query('CREATE VIEW teacher_att AS SELECT teacher_ID as t_ID,COUNT(attendance) as att FROM teacher_attendance where month = ? and year = ? group by teacher_ID',[thisMonth,thisYear], function(err, rows, fields) {
+		if (err) throw err;
+		//res.json(rows);
+		//console.log('The solution is: ', rows);
+	});
+
+	connection.query('SELECT * FROM teacher LEFT JOIN teacher_att ON teacher.teacher_ID = teacher_att.t_ID LEFT JOIN course ON course.teacherID = teacher.teacher_ID ', function(err, rows, fields) {
+		if (err) throw err;
+		res.json(rows);
+		console.log('The solution is: ', rows);
+	});
+
+	connection.query('DROP VIEW teacher_att', function(err, rows, fields) {
+		if (err) throw err;
+		//res.json(rows);
+		//console.log('The solution is: ', rows);
+	});
+	//connection.end();
+
+
+});
+
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -551,6 +596,28 @@ app.post('/insertCourse', function (req, res) {
 
 });
 
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+app.post('/insertAttendance', function (req, res) {
+
+
+
+
+	var post  = {
+		teacher_ID: req.body.teacID,
+		year: req.body.year,
+		month: req.body.month,
+		date: req.body.date,
+		attendance : 'YES'
+	};
+
+	var query = connection.query('INSERT INTO teacher_attendance SET ?', post, function(err, result) {
+		// Neat!
+	});
+	console.log(query.sql);
+	res.end('done');
+
+});
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 app.post('/insertSibling', function (req, res) {

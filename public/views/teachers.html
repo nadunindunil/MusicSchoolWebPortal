@@ -171,6 +171,7 @@
                             <th>DOB</th>
                             <th>NIC</th>
                             <th>Course</th>
+                            <th>Attendance for this month</th>
                             <!--<th>phone numbers</th>-->
                             <th>Action</th>
                         </tr>
@@ -183,6 +184,7 @@
                             <td>{{teacher.DOB }}</td>
                             <td>{{teacher.NID }}V</td>
                             <td>{{teacher.title}}</td>
+                            <td><center>{{teacher.att}}</center></td>
                             <!--<td>{{teacher.phone_number_id}}</td>-->
                             <td><div class="btn-group">
                                 <a href="#/members/{{member.NIC}}" class="btn btn-info btn-xs"  style="color: #ffffff" role="button"><i class="fa fa-user"></i> Profile</a>
@@ -241,7 +243,7 @@
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">Close</button>
-                                                <button type="button" ng-click="attendance(NatIdentity,Bal,DuDate,toDate,OffName);" class="btn btn-primary btn-sm" > Done</button>
+                                                <button type="button" ng-click="setAttendance();" data-dismiss="modal" class="btn btn-primary btn-sm" > Done</button>
                                             </div>
                                         </div>
                                         <!-- /.modal-content -->
