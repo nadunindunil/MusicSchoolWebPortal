@@ -55,9 +55,11 @@ CREATE TABLE IF NOT EXISTS `teacher` (
 
 CREATE TABLE IF NOT EXISTS `teacher_attendance` (
   `teacher_ID` varchar(7) NOT NULL,
-  `date` date NOT NULL,
-  `attendance(yes/no)` ENUM('YES','NO') NOT NULL,
-  PRIMARY KEY (`teacher_ID`,`date`),
+  `year` varchar(4) NOT NULL,
+  `month` varchar(15) NOT NULL,
+  `date` varchar(2) NOT NULL,
+  `attendance` ENUM('YES','NO') NOT NULL,
+  PRIMARY KEY (`teacher_ID`,`year`,`month`,`date`,`attendance`),
   FOREIGN KEY (`teacher_ID`) 
     REFERENCES `teacher` (`teacher_ID`) on delete cascade on update cascade
 );

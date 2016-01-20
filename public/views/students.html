@@ -156,12 +156,12 @@
                                                    ng-class="{textred: form.pID.$error.integer || form.pID.$error.minlength || (form.pID.$error.required && form.pID.$invalid && form.pID.$touched)}"
                                                    integer required ng-model-options="{ updateOn: 'blur' }" minlength="9" data-minlength="9" maxlength="9"
                                                    class="form-control col-md-7 col-xs-12">
-
+                                            <span class="form-control-feedback right" aria-hidden="true">V</span>
                                             <span style="color:red" ng-show="form.pID.$error.integer"> *should be a number</span>
                                             <span style="color:red" ng-show="form.pID.$touched && form.pID.$invalid">
                                             <span ng-show="form.pID.$error.required">*ID is required.</span>
                                             </span>
-                                            <span style="color:red" ng-show="form.pID.$error.minlength"> *should be 7 digits</span>
+                                            <span style="color:red" ng-show="form.pID.$error.minlength"> *should be 9 digits</span>
                                         </div>
                                     </div>
 

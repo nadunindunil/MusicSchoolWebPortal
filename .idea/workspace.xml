@@ -24,8 +24,8 @@
       <file leaf-file-name="students.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/views/students.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-12.16">
-              <caret line="355" column="37" selection-start-line="355" selection-start-column="37" selection-end-line="355" selection-end-column="37" />
+            <state vertical-scroll-proportion="-7.04">
+              <caret line="158" column="113" selection-start-line="158" selection-start-column="113" selection-end-line="158" selection-end-column="113" />
               <folding>
                 <element signature="n#style#0;n#span#0;n#div#0;n#div#2;n#div#0;n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#span#0;n#div#0;n#div#4;n#div#0;n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
@@ -34,10 +34,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="studentProfile.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="studentProfile.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/views/students/studentProfile.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-1.3604436">
+            <state vertical-scroll-proportion="13.62963">
               <caret line="137" column="0" selection-start-line="137" selection-start-column="0" selection-end-line="137" selection-end-column="0" />
               <folding />
             </state>
@@ -84,6 +84,16 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="teachers.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/public/views/teachers.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.7631579">
+              <caret line="129" column="97" selection-start-line="129" selection-start-column="97" selection-end-line="129" selection-end-column="97" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/index.html">
           <provider selected="true" editor-type-id="text-editor">
@@ -99,24 +109,9 @@
       <file leaf-file-name="schema.txt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/schema.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-4.339286">
-              <caret line="141" column="32" selection-start-line="141" selection-start-column="32" selection-end-line="141" selection-end-column="32" />
+            <state vertical-scroll-proportion="-5.482143">
+              <caret line="64" column="2" selection-start-line="64" selection-start-column="2" selection-end-line="64" selection-end-column="2" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="perGroups.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/views/perGroups.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="33.24">
-              <caret line="125" column="75" selection-start-line="125" selection-start-column="75" selection-end-line="125" selection-end-column="75" />
-              <folding>
-                <element signature="n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="false" />
-                <element signature="n#style#0;n#span#1;n#div#0;n#div#0;n#div#0;n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#span#2;n#div#0;n#div#0;n#div#0;n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#span#0;n#div#0;n#div#1;n#div#0;n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -181,7 +176,6 @@
         <option value="$PROJECT_DIR$/public/views/pages/login.html" />
         <option value="$PROJECT_DIR$/public/scripts/directives/header/header.html" />
         <option value="$PROJECT_DIR$/public/scripts/controllers/teacherController.js" />
-        <option value="$PROJECT_DIR$/public/views/teachers.html" />
         <option value="$PROJECT_DIR$/public/scripts/controllers/main.js" />
         <option value="$PROJECT_DIR$/public/views/instruments.html" />
         <option value="$PROJECT_DIR$/public/scripts/controllers/instrumentController.js" />
@@ -191,14 +185,15 @@
         <option value="$PROJECT_DIR$/public/scripts/directives/sidebar/sidebar.html" />
         <option value="$PROJECT_DIR$/public/scripts/controllers/perfItemController.js" />
         <option value="$PROJECT_DIR$/public/views/performanceItems.html" />
-        <option value="$PROJECT_DIR$/schema.txt" />
         <option value="$PROJECT_DIR$/public/views/perGroups.html" />
         <option value="$PROJECT_DIR$/public/scripts/controllers/perGroupController.js" />
         <option value="$PROJECT_DIR$/server.js" />
         <option value="$PROJECT_DIR$/public/scripts/controllers/studentController.js" />
-        <option value="$PROJECT_DIR$/public/views/students.html" />
         <option value="$PROJECT_DIR$/public/views/students/studentProfile.html" />
         <option value="$PROJECT_DIR$/public/index.html" />
+        <option value="$PROJECT_DIR$/schema.txt" />
+        <option value="$PROJECT_DIR$/public/views/students.html" />
+        <option value="$PROJECT_DIR$/public/views/teachers.html" />
       </list>
     </option>
   </component>
@@ -513,7 +508,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
+    <frame x="-8" y="-8" width="1382" height="754" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.17569546" sideWeight="0.49438202" order="0" side_tool="false" content_ui="combo" />
@@ -843,14 +838,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/views/teachers.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="7.04">
-          <caret line="151" column="14" selection-start-line="151" selection-start-column="14" selection-end-line="151" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/views/courses.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-86.4">
@@ -878,14 +865,6 @@
             <element signature="n#style#0;n#span#2;n#div#0;n#div#0;n#div#0;n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
             <element signature="n#style#0;n#span#0;n#div#0;n#div#1;n#div#0;n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/schema.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.339286">
-          <caret line="141" column="32" selection-start-line="141" selection-start-column="32" selection-end-line="141" selection-end-column="32" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -928,17 +907,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/views/students.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-12.16">
-          <caret line="355" column="37" selection-start-line="355" selection-start-column="37" selection-end-line="355" selection-end-column="37" />
-          <folding>
-            <element signature="n#style#0;n#span#0;n#div#0;n#div#2;n#div#0;n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#div#0;n#div#4;n#div#0;n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/scripts/directives/sidebar/sidebar.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-3.3333333">
@@ -967,8 +935,35 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/views/students/studentProfile.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.3604436">
+        <state vertical-scroll-proportion="13.62963">
           <caret line="137" column="0" selection-start-line="137" selection-start-column="0" selection-end-line="137" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/schema.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.482143">
+          <caret line="64" column="2" selection-start-line="64" selection-start-column="2" selection-end-line="64" selection-end-column="2" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/views/students.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-7.04">
+          <caret line="158" column="113" selection-start-line="158" selection-start-column="113" selection-end-line="158" selection-end-column="113" />
+          <folding>
+            <element signature="n#style#0;n#span#0;n#div#0;n#div#2;n#div#0;n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#div#0;n#div#4;n#div#0;n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/views/teachers.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7631579">
+          <caret line="129" column="97" selection-start-line="129" selection-start-column="97" selection-end-line="129" selection-end-column="97" />
           <folding />
         </state>
       </provider>

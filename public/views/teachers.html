@@ -125,7 +125,9 @@
                                         <label class="control-label col-md-3 col-sm-3 col-xs-12">Address </label>
                                         <div class="col-md-6 col-sm-6 col-xs-12">
                                             <input class="form-control pull-right"
-                                                   data-ng-model="address" type="text" placeholder="Address">
+                                                   data-ng-model="address" name="Address" id="Address" type="text" placeholder="Address" required>
+                                            <span style="color:red" ng-show="form.Address.$touched && form.Address.$invalid">
+                                            <span ng-show="form.Address.$error.required">*address is required.</span>
                                         </div>
                                     </div>
 
