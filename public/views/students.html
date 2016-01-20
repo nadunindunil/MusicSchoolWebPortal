@@ -69,19 +69,6 @@
                                     </div>
 
                                     <div class="form-group">
-                                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Access Level <span class="required">*</span></label>
-                                        <div class="col-md-6 col-sm-6 col-xs-12">
-                                            <select class="form-control" data-ng-model="accLevel" name="accLevel" required>
-                                                <option>Admin</option>
-                                                <option>User</option>
-
-                                            </select>
-                                            <span style="color:red" ng-show="form.accLevel.$touched && form.accLevel.$invalid">
-                                            <span ng-show="form.accLevel.$error.required">*Access level is required.</span>
-                                            </span>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
                                         <label class="control-label col-md-3 col-sm-3 col-xs-12">Course <span class="required">*</span></label>
                                         <div class="col-md-6 col-sm-6 col-xs-12">
                                             <select  class="form-control" data-ng-model="course" name="course" required>
@@ -106,18 +93,6 @@
                                         </div>
                                     </div>
 
-                                    <div class="form-group">
-                                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Performance Group ID <span class="required">*</span></label>
-                                        <div class="col-md-6 col-sm-6 col-xs-12">
-                                            <select class="form-control" data-ng-model="perGroup" name="perGroup" required>
-                                                <option data-ng-repeat="grp in Groups" value="{{grp.group_ID}}"> {{grp.group_ID}}</option>
-
-                                            </select>
-                                            <span style="color:red" ng-show="form.perGroup.$touched && form.perGroup.$invalid">
-                                            <span ng-show="form.perGroup.$error.required">*Performance Group ID is required.</span>
-                                            </span>
-                                        </div>
-                                    </div>
 
                                     <div class="form-group">
                                         <label class="control-label col-md-3 col-sm-3 col-xs-12">Telephone <span class="required">*</span></label>
@@ -243,7 +218,7 @@
                                                                 text: 'Data was added',
                                                                 type: 'success'
                                                             });resetForm1();"
-                                                    data-ng-click=" addStudent(); addParent();" data-dismiss="modal"> Add Student</button>
+                                                    data-ng-click=" addStudent();" data-dismiss="modal"> Add Student</button>
                                         </div>
                                     </div>
 
@@ -279,9 +254,8 @@
                             <th>Gender</th>
                             <th>DOB</th>
                             <th>course ID</th>
-                            <th>performance group ID</th>
                             <!--<th>phone numbers</th>-->
-                            <th>Action</th>
+                            <th><center>Action</center></th>
                         </tr>
                         </thead>
                         <tbody>
@@ -291,14 +265,14 @@
                             <td>{{student.gender}}</td>
                             <td>{{student.DOB }}</td>
                             <td>{{student.course_ID}}</td>
-                            <td>{{student.performance_group_ID }}</td>
+
                             <!--<td>-->
                             <!--<ul ng-init="nums = findTelNums(student.ID)">-->
                             <!--<li>{{nums[0]}}</li>-->
                             <!--</ul>-->
 
                             <!--</td>-->
-                            <td><div class="btn-group">
+                            <td><center><div class="btn-group">
                                 <a href="#/members/{{member.NIC}}" class="btn btn-info btn-xs"  style="color: #ffffff" role="button"><i class="fa fa-user"></i> Profile</a>
 
                                 <!-- Button trigger modal -->
@@ -379,6 +353,7 @@
                                 <!-- /.modal -->
                                 <button type="button" ng-click="deleteMember(member.NIC);" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i></button>
                             </div>
+                            </center>
                             </td>
                         </tr>
 

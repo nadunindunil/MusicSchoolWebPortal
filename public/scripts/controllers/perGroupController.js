@@ -85,7 +85,7 @@ angular.module('sbAdminApp')
 
 
         $scope.getMembers = function(group){
-            $http.get('http://localhost:3000/findGroupMembers/'+ group )
+            $http.get('http://localhost:3000/getPerformanceGroup/'+ group )
                 .success(function(data){
                     $scope.StudentsList = data;
                     console.log(data);
@@ -111,7 +111,7 @@ angular.module('sbAdminApp')
             console.log(gmem);
 
             $http.post('http://localhost:3000/insertperfGroupMembers',gmem);
-            //$scope.pgInit();
+            $scope.pgInit();
         }
 
 

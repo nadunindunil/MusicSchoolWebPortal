@@ -72,13 +72,13 @@ angular.module('sbAdminApp')
         var gender = $scope.sgender;
         var name = $scope.fullname;
         var dob = $scope.dob;
-        var acclevel = $scope.accLevel;
+        //var acclevel = $scope.accLevel;
         var course = $scope.course;
-        var pergroup = $scope.perGroup;
+        //var pergroup = $scope.perGroup;
         var tel = $scope.telephone;
         var add = $scope.address;
 
-        console.log(id,gender,name,dob,pergroup,course );
+        console.log(id,gender,name,dob,course );
 
         //$http.post('http://localhost:3000/insertTelNum',{
         //    ID: id,
@@ -93,12 +93,16 @@ angular.module('sbAdminApp')
             name: name,
             gender: gender,
             DOB: dob,
-            access_level: acclevel,
+            //access_level: acclevel,
             courseID: course,
-            performance_group_ID:pergroup,
+            //performance_group_ID:pergroup,
             phone_number_id:id,
             location: add,
             phone_number: tel
+
+        }).success(function (response) {
+            console.log("success in post student" + response);
+            $scope.addParent();
 
         });
 
@@ -113,9 +117,9 @@ angular.module('sbAdminApp')
             var gender = $scope.sgender;
             var name = $scope.fullname;
             var dob = $scope.dob;
-            var acclevel = $scope.accLevel;
+            //var acclevel = $scope.accLevel;
             var course = $scope.course;
-            var pergroup = $scope.perGroup;
+            //var pergroup = $scope.perGroup;
             var tel = $scope.telephone;
             var add = $scope.address;
             var cid = $scope.cID;
@@ -125,7 +129,7 @@ angular.module('sbAdminApp')
             var parentTelephone = $scope.ptelephone;
 
 
-            console.log(id,gender,name,dob,pergroup,course,parentNIC,parentName,parentTelephone,parentGender );
+            console.log(id,gender,name,dob,course,parentNIC,parentName,parentTelephone,parentGender );
 
             if (!$scope.cousin && $scope.cID != null){
                 // cousin

@@ -32,22 +32,8 @@
             <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                     <div class="x_title">
-                        <h2>User Report <small> Report</small></h2>
-                        <ul class="nav navbar-right panel_toolbox">
-                            <li><a href="#"><i class="fa fa-chevron-up"></i></a>
-                            </li>
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                                <ul class="dropdown-menu" role="menu">
-                                    <li><a href="#">Settings 1</a>
-                                    </li>
-                                    <li><a href="#">Settings 2</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li><a href="#"><i class="fa fa-close"></i></a>
-                            </li>
-                        </ul>
+                        <h2>User Report <small> profile</small></h2>
+
                         <div class="clearfix"></div>
                     </div>
                     <div class="x_content">
@@ -131,23 +117,23 @@
                                 <!-- end of image cropping -->
 
                             </div>
-                            <h3>Samuel Doe</h3>
+                            <h3>{{user.name}}</h3>
 
                             <ul class="list-unstyled user_data">
-                                <li><i class="fa fa-map-marker user-profile-icon"></i> San Francisco, California, USA
+                                <li><i class="fa fa-map-marker user-profile-icon"></i>{{user.name}}
                                 </li>
 
                                 <li>
-                                    <i class="fa fa-briefcase user-profile-icon"></i> Software Engineer
+                                    <i class="fa fa-briefcase user-profile-icon"></i> Student
                                 </li>
 
                                 <li class="m-top-xs">
                                     <i class="fa fa-external-link user-profile-icon"></i>
-                                    <a href="http://www.kimlabs.com/profile/" target="_blank">www.kimlabs.com</a>
+                                    <a href="http://www.kimlabs.com/profile/" target="_blank">{{user.telephone}}</a>
                                 </li>
                             </ul>
 
-                            <a class="btn btn-success"><i class="fa fa-edit m-right-xs"></i>Edit Profile</a>
+                            <!--<a class="btn btn-success"><i class="fa fa-edit m-right-xs"></i>Edit Profile</a>-->
                             <br />
 
                             <!-- start skills -->

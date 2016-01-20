@@ -207,6 +207,23 @@ app.get('/getPerGroupsList', function(req, res){
 
 });
 
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+app.get('/getPerformanceGroup/:id', function(req, res){
+	//connection.connect();
+	var ID = req.params.id;
+	connection.query('SELECT * FROM `perfgroup_has_members` left join `student` on perfgroup_has_members.s_ID = student.ID WHERE perfgroup_has_members.grp_ID = ?',[ID], function(err, rows, fields) {
+		if (err) throw err;
+		res.json(rows);
+		console.log('The solution is: ', rows);
+	});
+
+	//connection.end();
+
+
+});
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 app.get('/findTelNum/:id', function(req, res){
@@ -351,7 +368,7 @@ app.post('/insertStudent', function (req, res) {
 		location: req.body.location,
 		phone_number: req.body.phone_number
 
-	}
+	};
 
 	var query = connection.query('INSERT INTO phone_numbers SET ?', post2, function(err, result) {
 		// Neat!
@@ -364,15 +381,15 @@ app.post('/insertStudent', function (req, res) {
 		name: req.body.name,
 		gender: req.body.gender,
 		DOB: req.body.DOB,
-		access_level: req.body.access_level,
+		//access_level: req.body.access_level,
 		course_ID: req.body.courseID,
-		performance_group_ID:req.body.performance_group_ID,
+		//performance_group_ID:req.body.performance_group_ID,
 		phone_number_id:req.body.phone_number_id };
 
-	var query = connection.query('INSERT INTO student SET ?', post, function(err, result) {
+	var query2 = connection.query('INSERT INTO student SET ?', post, function(err, result) {
 		// Neat!
 	});
-	console.log(query.sql);
+	console.log(query2.sql);
 	res.end('done');
 
 });
