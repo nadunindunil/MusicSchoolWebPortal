@@ -269,6 +269,24 @@ app.get('/getPerformanceGroup/:id', function(req, res){
 
 
 });
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+app.get('/getStudentDetails/:id', function(req, res){
+	//connection.connect();
+	var ID = req.params.id;
+	connection.query('SELECT * FROM `student` left join `phone_numbers` on student.ID = phone_numbers.number_ID WHERE student.ID = ?',[ID], function(err, rows, fields) {
+		if (err) throw err;
+		res.json(rows);
+		console.log('The solution is: ', rows);
+	});
+
+	//connection.end();
+
+
+});
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 app.get('/findTelNum/:id', function(req, res){

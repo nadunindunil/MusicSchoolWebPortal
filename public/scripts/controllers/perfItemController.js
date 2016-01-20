@@ -8,7 +8,15 @@
 angular.module('sbAdminApp')
     .controller('PerItemCtrl',['$scope','$rootScope','$http','$log', function($scope,$rootScope,$http,$log){
 
+        var inst = JSON.parse(localStorage.userData);
+        $scope.userName = inst.name;
 
+        if (inst.Admin == 'True'){
+            console.log("inside true");
+            $scope.secLevel = true;
+
+        }
+        else{$scope.secLevel = false;}
 
         $scope.piInit = function(){
             //$rootScope.pageName = "COURSES";

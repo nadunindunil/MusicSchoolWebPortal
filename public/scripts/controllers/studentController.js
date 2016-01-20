@@ -5,7 +5,15 @@
 angular.module('sbAdminApp')
     .controller('StudentsCtrl',['$scope','$http','$rootScope','$log', function($scope,$http,$log,$rootScope){
 
+        var inst = JSON.parse(localStorage.userData);
+        $scope.userName = inst.name;
 
+        if (inst.Admin == 'True'){
+            console.log("inside true");
+            $scope.secLevel = true;
+
+        }
+        else{$scope.secLevel = false;}    
 
     $scope.stdInit = function(){
         //$rootScope.pageName = "STUDENTS MANAGEMENT";

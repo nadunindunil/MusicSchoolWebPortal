@@ -103,11 +103,7 @@ angular
         templateUrl:'views/form.html',
         url:'/form'
     })
-        .state('dashboard.studentProfile',{
-            templateUrl:'views/students/studentProfile.html',
-            authenticate: true,
-            url:'/studentProfile'
-        })
+
         .state('dashboard.teacherProfile',{
             templateUrl:'views/teacher/teacherProfile.html',
             authenticate: true,
@@ -180,7 +176,25 @@ angular
             })
           }
         }
-    })
+    }).state('dashboard.studentProfile',{
+            templateUrl:'views/students/studentProfile.html',
+            authenticate: true,
+            controller:'StudentProCtrl',
+            url:'/students/:ID',
+            resolve: {
+                loadMyFiles:function($ocLazyLoad) {
+                    return $ocLazyLoad.load({
+                        name:'sbAdminApp',
+                        files:[
+
+                            'scripts/controllers/stdProfileController.js'
+
+                        ]
+                    })
+                }
+            }
+
+        })
       .state('dashboard.teachers',{
 
             templateUrl:'views/teachers.html',
@@ -377,7 +391,7 @@ angular
         }])
 
     .run(function($rootScope, $state, AuthenticationService){
-
+       // $state.go('viewselection', {engineProgramId: id});
         $rootScope.$on("$stateChangeStart",
 
             function(event, toState, toParams, fromState, fromParams) {

@@ -5,6 +5,16 @@
 angular.module('sbAdminApp')
     .controller('TeachersCtrl',['$scope','$rootScope','$http','$log', function($scope,$rootScope,$http,$log){
 
+        var inst = JSON.parse(localStorage.userData);
+        $scope.userName = inst.name;
+
+        if (inst.Admin == 'True'){
+            console.log("inside true");
+            $scope.secLevel = true;
+
+        }
+        else{$scope.secLevel = false;}
+
         var d = new Date();
         var month = new Array();
         month[0] = "January";
