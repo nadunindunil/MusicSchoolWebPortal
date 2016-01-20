@@ -97,13 +97,21 @@ angular.module('sbAdminApp')
 
         };
 
-        $scope.addMembers = function(group){
+        $scope.selectGroup = function(grp){
+            $scope.pickedgroup = grp;
+        };
+
+        $scope.addMembers = function(){
+            var group = $scope.pickedgroup;
             var gmem = [];
 
             for(var i=0;i<$scope.mems.length;i++)
                 gmem.push({grp_ID:group ,s_ID:$scope.mems[i].s_ID});
 
-            console.log(gmem)
+            console.log(gmem);
+
+            $http.post('http://localhost:3000/insertperfGroupMembers',gmem);
+            //$scope.pgInit();
         }
 
 

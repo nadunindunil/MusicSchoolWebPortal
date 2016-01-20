@@ -139,6 +139,7 @@ CREATE TABLE IF NOT EXISTS `has_instruments` (
 CREATE TABLE IF NOT EXISTS `perfGroup_has_members` (
   `grp_ID` varchar(4) NOT NULL,
   `s_ID` varchar(7) NOT NULL,
+  PRIMARY KEY (`s_ID`,`grp_ID`),
   FOREIGN KEY (`s_ID`)
     REFERENCES `student` (`ID`) on delete cascade on update cascade,
   FOREIGN KEY (`grp_ID`)

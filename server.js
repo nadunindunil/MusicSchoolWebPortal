@@ -303,6 +303,24 @@ app.post('/insertPerfItem', function (req, res) {
 
 });
 
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+app.post('/insertperfGroupMembers', function (req, res) {
+	console.log("inside bulk members input");
+
+	console.log(req.body);
+
+	var post  = req.body;
+
+	for (var i = 0 ; i < post.length ; i++){
+		var query = connection.query('INSERT INTO perfgroup_has_members SET ?', post[i], function(err, result) {
+			// Neat!
+		});
+		console.log(query.sql);
+	}
+	res.end('done');
+
+});
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
