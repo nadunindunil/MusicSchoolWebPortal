@@ -12,6 +12,7 @@ angular
     'ngCookies',
     'oc.lazyLoad',
     'ui.router',
+        'ngAnimate',
     'ui.bootstrap',
     'angular-loading-bar'
   ])

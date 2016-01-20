@@ -11,7 +11,7 @@
         <div class="under">
 
             <!-- Button trigger modal -->
-            <button class="btn btn-success btn-green btn-xs" data-toggle="modal" data-target="#myModal"><i class="fa fa-plus"></i>
+            <button ng-show="secLevel" class="btn btn-success btn-green btn-xs" data-toggle="modal" data-target="#myModal"><i class="fa fa-plus"></i>
                 New Teacher
             </button>
 
@@ -191,7 +191,7 @@
 
                                 <!-- Button trigger modal -->
                                 <button type="button" class="btn btn-warning btn-orange btn-xs" ng-click="settID(teacher.teacher_ID);" data-toggle="modal" data-target="#myModal2">
-                                    Mark Attendance
+                                    Attendance
                                 </button>
                                 <!-- Modal -->
                                 <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel2" aria-hidden="true">
@@ -251,7 +251,7 @@
                                     <!-- /.modal-dialog -->
                                 </div>
                                 <!-- /.modal -->
-                                <button type="button" ng-click="deleteMember(member.NIC);" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i></button>
+                                <button type="button" ng-show="secLevel" ng-click="deleteMember(member.NIC);" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i></button>
                             </div>
                             </td>
                         </tr>
