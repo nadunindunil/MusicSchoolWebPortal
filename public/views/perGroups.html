@@ -123,7 +123,58 @@
 
                             <td><div class="btn-group">
 
+                                <button type="button" ng-click="getMembers(perGroup.group_ID);" data-toggle="modal" data-target="#myModal3" class="btn btn-success btn-green btn-xs"><i class="fa fa-plus"></i> Add Members</button>
+                                <!-- Modal -->
+                                <div class="modal fade" id="myModal3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel3" aria-hidden="true">
+                                    <div class="modal-dialog modal-lg">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                                <h4 class="modal-title" id="myModalLabel3"> Groups Members</h4>
+                                            </div>
+                                            <div class="modal-body">
+                                                <form id="form2" name="form" role="form" class="form-horizontal form-label-left" novalidate>
+                                                    <div class="row" style="padding-left: 15px;">
 
+                                                        <div data-ng-repeat="mm in mems" class="form-group">
+                                                            <label class="control-label col-md-3 col-sm-3 col-xs-12">Member Name <span class="required">*</span></label>
+                                                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                                                <select  class="form-control" data-ng-model="mm.s_ID" name="mm.s_ID" required>
+                                                                    <option data-ng-repeat="std in regStudentsList" value="{{std.ID}}"> {{std.name}}</option>
+                                                                    <!--<option> dummycourse2</option>-->
+
+                                                                </select>
+                                                                <!--<span style="color:red" ng-show="form2.Pitem.$touched && form.Pitem.$invalid">-->
+                                                                <!--<span ng-show="form2.Pitem.$error.required">*Member is required.</span>-->
+                                                                <!--</span>-->
+                                                            </div>
+                                                        </div>
+                                                        <button class="btn btn-default btn-sm" ng-click="addMems()">Add Member</button>
+
+
+
+                                                        <div class="ln_solid"></div>
+
+                                                        <div class="form-group">
+                                                            <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+
+                                                                <button data-dismiss="modal" onclick="resetForm1()" class="btn btn-default" >Close</button>
+                                                                <button class="btn btn-success btn-green" type="button"
+
+                                                                        onclick="resetForm1()" data-ng-click=" addMembers(perGroup.group_ID);" data-dismiss="modal"> Add Group</button>
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                </form>
+
+                                            </div>
+                                        </div>
+                                        <!-- /.modal-content -->
+                                    </div>
+                                    <!-- /.modal-dialog -->
+                                </div>
+                                <!-- /.modal -->
                                 <!-- Button trigger modal -->
                                 <button type="button" class="btn btn-info btn-xs" ng-click="getMembers(perGroup.group_ID);" data-toggle="modal" data-target="#myModal2">
                                     <i class="fa fa-group"></i> Group Members

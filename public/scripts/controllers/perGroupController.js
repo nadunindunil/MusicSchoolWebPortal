@@ -21,6 +21,15 @@ angular.module('sbAdminApp')
                     $log.error(err);
                 });
 
+            $http.get('http://localhost:3000/getStudentsList')
+                .success(function(data){
+                    $scope.regStudentsList = data;
+                    console.log(data);
+                })
+                .error(function(err){
+                    $log.error(err);
+                });
+
             $http.get('http://localhost:3000/getPerfItems')
                 .success(function(data){
                     $scope.ItemsList = data;
@@ -40,6 +49,13 @@ angular.module('sbAdminApp')
                 });
 
 
+        };
+
+        $scope.mems = [{s_ID:"",id:0}];
+        $scope.answer = {text:""};
+
+        $scope.addMems = function(){
+            $scope.mems.push({s_ID:"",id:$scope.mems.length});
         };
 
 
@@ -79,6 +95,15 @@ angular.module('sbAdminApp')
                 });
 
 
+        };
+
+        $scope.addMembers = function(group){
+            var gmem = [];
+
+            for(var i=0;i<$scope.mems.length;i++)
+                gmem.push({grp_ID:group ,s_ID:$scope.mems[i].s_ID});
+
+            console.log(gmem)
         }
 
 
