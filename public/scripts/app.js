@@ -85,6 +85,7 @@ angular
         url:'/home',
         authenticate: true,
         templateUrl:'views/dashboard/home.html',
+        controller:'dashCtrl',
         resolve: {
           loadMyFiles:function($ocLazyLoad) {
             return $ocLazyLoad.load({
@@ -94,7 +95,7 @@ angular
               'scripts/directives/timeline/timeline.js',
               'scripts/directives/notifications/notifications.js',
               'scripts/directives/chat/chat.js',
-              'scripts/directives/dashboard/stats/stats.js'
+              'scripts/controllers/dashboardController.js'
               ]
             })
           }

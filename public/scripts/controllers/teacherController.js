@@ -51,6 +51,8 @@ angular.module('sbAdminApp')
 
         });
 
+        $scope.teachInit();
+
     };
     $scope.settID = function(id){
 
